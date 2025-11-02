@@ -8,13 +8,16 @@
 </head>
 <body>
     <!-- 導航選單 - 注意：按鈕大小一致、間距統一 -->
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="index.html" class="nav-link active">首頁</a></li>
-            <li class="nav-item"><a href="steps.html" class="nav-link">化妝步驟</a></li>
-            <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1 class="logo">新手化妝教學</h1>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link active">首頁</a></li>
+                <li class="nav-item"><a href="steps.html" class="nav-link">化妝步驟</a></li>
+                <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- 主要內容區 -->
     <main>
@@ -23,7 +26,7 @@
             <!-- 標題區 - 字級1 (最大) -->
             <h1 class="main-title">新手化妝教學</h1>
             <!-- 副標題 - 字級2 (中) -->
-            <p class="subtitle">目標群眾：化妝新手、想嘗試化妝的人</p>
+            <p class="subtitle">想學習化妝，卻不知道從何開始？</p>
             
             <!-- Slogan區 - 字級2 (中) -->
             <div class="slogan-container">
@@ -35,21 +38,43 @@
                 <img src="images/hero-banner.jpg" alt="化妝教學主視覺" class="hero-image">
             </div>
 
-            <!-- 今日推薦區 - 可點擊跳轉 -->
+            <!-- 今日推薦區 -->
             <div class="daily-recommendation">
                 <!-- 區塊標題 - 字級2 (中) -->
                 <h2 class="section-title">今日推薦妝容</h2>
-                <!-- 可點擊的推薦圖片 - 注意：圖片比例一致 -->
-                <a href="recommendations.html" class="recommendation-link">
-                    <img src="images/daily-look.jpg" alt="今日推薦妝容" class="recommendation-image">
-                </a>
+                <!-- 妝容風格卡片容器 -->
+                <div class="style-cards-container">
+                    <!-- 甜美妝容卡片 -->
+                    <a href="recommendations.html#sweet" class="style-card">
+                        <img src="images/sweet-style.jpg" alt="甜美妝容" class="style-card-image">
+                        <div class="style-card-label">甜美妝容</div>
+                    </a>
+                    
+                    <!-- 帥氣妝容卡片 (鹹) -->
+                    <a href="recommendations.html#cool" class="style-card">
+                        <img src="images/cool-style.jpg" alt="帥氣妝容" class="style-card-image">
+                        <div class="style-card-label">帥氣妝容</div>
+                    </a>
+                    
+                    <!-- 苦情妝容卡片 -->
+                    <a href="recommendations.html#bitter" class="style-card">
+                        <img src="images/bitter-style.jpg" alt="苦情妝容" class="style-card-image">
+                        <div class="style-card-label">苦情妝容</div>
+                    </a>
+                    
+                    <!-- 辣妹妝容卡片 -->
+                    <a href="recommendations.html#spicy" class="style-card">
+                        <img src="images/spicy-style.jpg" alt="辣妹妝容" class="style-card-image">
+                        <div class="style-card-label">辣妹妝容</div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- 頁尾 - 字級3 (最小) -->
     <footer class="site-footer">
-        <p class="footer-text">&copy; 2024 新手化妝教學. All rights reserved.</p>
+        <p class="footer-text">&copy; 2025 新手化妝教學. All rights reserved.</p>
     </footer>
 </body>
 </html>
