@@ -1,0 +1,499 @@
+/* ========================================
+   CSS Reset & Base Styles
+   ======================================== */
+
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+/* ========================================
+   字體設定 - 最多三種字型
+   ======================================== */
+
+body {
+    font-family: 'Microsoft JhengHei', 'PingFang TC', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ========================================
+   字級設定 - 三種字級
+   ======================================== */
+
+/* 字級1 - 最大 (頁面主標題) */
+.page-title,
+.main-title {
+    font-size: 2.5rem;
+}
+
+/* 字級2 - 中 (區塊標題) */
+.section-title,
+.content-title,
+.style-title,
+.makeup-title,
+.slogan-text,
+.product-name,
+.step-title {
+    font-size: 1.5rem;
+}
+
+/* 字級3 - 小 (內文、描述) */
+.subtitle,
+.makeup-description,
+.product-description,
+.step-description,
+.footer-text,
+.product-subtitle,
+.product-list-inline {
+    font-size: 1rem;
+}
+
+/* ========================================
+   色彩設定 - 最多三種色相
+   ======================================== */
+
+:root {
+    --primary-color: #FF69B4;      /* 主色 - 粉紅色 */
+    --secondary-color: #FFA07A;    /* 次要色 - 珊瑚色 */
+    --accent-color: #FFD700;       /* 強調色 - 金色 */
+    --text-color: #333;            /* 文字色 */
+    --bg-color: #FFF;              /* 背景色 */
+    --border-color: #E0E0E0;       /* 邊框色 */
+}
+
+/* ========================================
+   Header 樣式
+   ======================================== */
+
+.site-header {
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+/* ========================================
+   導覽列樣式
+   ======================================== */
+
+.main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    display: inline;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* ========================================
+   按鈕樣式 - 統一大小與間距
+   ======================================== */
+
+.detail-btn,
+.skin-type-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.detail-btn:hover,
+.skin-type-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skin-type-btn.active {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* ========================================
+   圖片樣式 - 統一尺寸與比例
+   ======================================== */
+
+.hero-image,
+.recommendation-image,
+.makeup-image,
+.step-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.hero-image-container,
+.recommendation-link {
+    display: block;
+    margin: 2rem 0;
+}
+
+/* ========================================
+   首頁風格卡片樣式 - 左上角文字標籤
+   ======================================== */
+
+.style-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.style-card {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.style-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.style-card-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.style-card-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   卡片樣式 - 統一間距與設計語言
+   ======================================== */
+
+.makeup-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.makeup-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.makeup-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* ========================================
+   區塊樣式
+   ======================================== */
+
+.hero-section,
+.steps-section,
+.recommendations-section,
+.style-group {
+    margin: 3rem 0;
+}
+
+/* 讓錨點跳轉時區塊顯示在畫面中間 */
+.style-group {
+    scroll-margin-top: 30vh; /* 從頂部留出30%視窗高度的空間 */
+}
+
+.section-title {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   產品列表樣式
+   ======================================== */
+
+.product-list,
+.product-list-inline {
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-list-inline li {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.product-list-inline li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.product-item {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item .product-name {
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.product-item .product-description {
+    margin: 0;
+}
+
+/* ========================================
+   步驟列表樣式
+   ======================================== */
+
+.step-list {
+    list-style: none;
+    counter-reset: step-counter;
+    /* 預留計數器空間 */
+    /* padding-left: 2rem; */
+}
+
+.step-item {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    align-items: flex-start;
+    counter-increment: step-counter;
+    position: relative;
+}
+.step-item::before {
+    content: counter(step-counter);
+    position: absolute;
+    top: -0.5rem;
+    left: -3rem; /* 移到框外左側 */
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.step-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================
+   按鈕組樣式
+   ======================================== */
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   膚質內容區塊
+   ======================================== */
+
+.skin-type-content {
+    margin-top: 2rem;
+}
+
+/* ========================================
+   Footer 樣式
+   ======================================== */
+
+.site-footer {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* ========================================
+   響應式設計
+   ======================================== */
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .makeup-card-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .page-title,
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .section-title,
+    .content-title {
+        font-size: 1.25rem;
+    }
+}
