@@ -1,0 +1,450 @@
+/* ========================================
+   推薦妝容頁面 - 樣式表
+   ======================================== */
+
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   全域與基本設定
+   ======================================== */
+body {
+    font-family: 'Noto Sans TC', sans-serif, 'Microsoft JhengHei', 'PingFang TC';
+    background-color: #FFF4F4;
+    color: #333;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========================================
+   頁首 Header
+   ======================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3%;
+    background-color: #FADADD; /* 白色背景 */
+    border-bottom: 1px solid #eee;
+    height: 100px;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #FF8894;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 80px;
+    list-style: none;
+}
+
+.nav-link {
+    font-size: 24px;
+    color: #555;
+    padding-bottom: 5px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #000;
+    border-bottom: 2px solid #888;
+}
+
+/* ========================================
+   主要內容 Main
+   ======================================== */
+main {
+    /* padding: 20px 2%; */
+}
+
+.page-topic {
+    background-color: #FAAAB2;
+    width:100% !important;
+    padding: 2% 5%;
+    margin-bottom:2.5%;
+}
+/* 頁面標題區塊 */
+.page-title {
+    font-size: 64px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+/* ========================================
+   妝容推薦卡片區塊
+   ======================================== */
+.style-groups-container {
+    /* display: flex; */
+    align-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+    margin-left: 5%;
+}
+
+.style-group {
+    display: flex;
+    /* align-items: center; */
+    gap: 40px;
+    /* background-color: #fff; */
+    padding-bottom: 20px;
+    padding-left:20px;
+    /* border-radius: 15px; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); */
+}
+
+/* 圓形標籤 */
+.style-small-titlearea {
+    flex-shrink: 0;
+}
+
+.style-small-title {
+    width: 55px;
+    height: 55px;
+    background-color: #FF8FAB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* 圖片區域 */
+.style-image {
+    flex-shrink: 0;
+}
+
+.makeup-card {
+    height: 240px;
+    aspect-ratio: 1.2/1;
+    overflow: hidden;
+    border-radius: 30px 0 0 0;
+}
+
+.makeup-image {
+    width: 400px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* 文字區域 */
+.style-text {
+    margin-top:0.5%;
+    margin-left: 40px;
+    flex: 1;
+}
+
+.style-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF1493;
+    margin-bottom: 4%;
+}
+
+.style-text p {
+    font-size: 24px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 1.5%;
+
+}
+
+.style-description p{
+    margin-top: 3%;
+    font-size: 24px;
+}
+
+/* ========================================
+   提示區塊
+   ======================================== */
+.style-groups-hint {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0 30px 0;
+    padding: 0 2.5% 0 5%;
+}
+
+.style-groups-hint1 {
+    background-color: #FFD4E0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.style-groups-hint1 p {
+    font-size: 24px;
+    color: #333;
+    font-weight: 500;
+}
+
+.style-groups-hint2{
+    display: flex;
+    align-items:flex-end;
+}
+.style-groups-hint2 a {
+    font-size: 24px;
+    color: black;
+    text-decoration: underline;
+    margin-top: 1%;
+
+}
+
+.style-groups-hint2 a:hover {
+    color: #C71585;
+}
+
+/* ========================================
+   妝容細節區塊
+   ======================================== */
+
+
+.style-detail-details{
+
+}
+
+.style-detail-content.active{
+    background-color: #FFD4E0;
+    border-radius: 30px 30px 0 0px;
+}
+.style-detail-without-video{
+    display: flex;
+    padding:4% 15%;
+}
+
+.style-detail-image {
+    position: relative;
+    /* margin-bottom: 30px; */
+}
+
+.style-detail-image .makeup-image {
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+/* 切換按鈕組 */
+.style-groups-button {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 5%;
+}
+
+.style-detail-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    color: #FF0073;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.style-detail-btn:hover {
+    background-color: #FF8FAB;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.style-detail-btn.active {
+    background-color: #FF1493;
+    color: #fff;
+}
+
+/* 細節文字 */
+.style-detail-text {
+    margin-bottom: 30px;
+    margin-left: 10%;
+}
+.style-detail-title{
+    font-size: 64px;
+    font-weight: bold;
+    color: #FF1493;
+    margin-top:0.5%;
+    margin-bottom: 10%;
+}
+.style-detail-subtitle{
+    font-size: 32px !important;
+    color: #FFFFFF !important;
+    margin-bottom: 7%;
+}
+
+.style-detail-text .style-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.style-detail-text p {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   影片教學區塊
+   ======================================== */
+.style-video-section {
+    background-color: #E0E0E0;
+    padding: 3.5% 17.5%;
+    /* border-radius: 15px; */
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 20px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.makeup-video {
+    width: 100%;
+    height: 100%;
+}
+
+.video-description {
+    /* text-align: center; */
+    margin-left:3% ;
+}
+
+.video-description p {
+    font-size: 32px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ========================================
+   頁尾 Footer
+   ======================================== */
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 3%;
+    /* margin-top: 1%; */
+    /* border-top: 1px solid #eee; */
+    background-color: #FADADD;
+}
+
+.footer-text {
+    font-size: 24px;
+    color: #EDC5CE;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link img {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;
+
+}
+
+.footer-link:hover img {
+    opacity: 1;
+}
+.sweet{
+    /* display: flex; */
+}
+
+
+/* ========================================
+   響應式設計 (RWD)
+   ======================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 20px;
+    }
+    
+    .nav-item {
+        margin-left: 20px;
+    }
+    
+    .style-group {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .style-detail-content {
+        padding: 20px;
+    }
+    
+    .site-footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-list {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .nav-item {
+        margin: 0 15px;
+    }
+    
+    .page-title {
+        font-size: 22px;
+        padding: 20px 15px;
+    }
+    
+    .style-groups-button {
+        gap: 10px;
+    }
+    
+    .style-detail-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+}

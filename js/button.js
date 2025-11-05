@@ -15,11 +15,18 @@ function showStyleDetail(style) {
     
     // 顯示選中的細節內容
     var selectedContent = document.getElementById(style + '-detail');
-    selectedContent.style.display = 'flex';
+    selectedContent.style.display = 'block';
     selectedContent.classList.add('active');
     
-    // 添加對應按鈕的active class
-    event.target.classList.add('active');
+    // 為所有對應風格的按鈕添加active class
+    var buttons = document.getElementsByClassName('style-detail-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        // 檢查按鈕的onclick屬性中是否包含當前選中的style
+        var onclickAttr = buttons[i].getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes("'" + style + "'")) {
+            buttons[i].classList.add('active');
+        }
+    }
 }
 
 // 化妝步驟切換功能
@@ -42,6 +49,40 @@ function showStep(stepNumber) {
     selectedContent.style.display = 'block';
     selectedContent.classList.add('active');
     
-    // 添加對應按鈕的active class
-    event.target.classList.add('active');
+    // 為所有對應步驟的按鈕添加active class
+    var buttons = document.getElementsByClassName('step-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        // 檢查按鈕的onclick屬性中是否包含當前選中的步驟編號
+        var onclickAttr = buttons[i].getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes('(' + stepNumber + ')')) {
+            buttons[i].classList.add('active');
+        }
+    }
 }
+
+// 頁面載入時檢查URL hash,自動顯示對應的妝容細節
+window.addEventListener('DOMContentLoaded', function() {
+    // 取得URL中的hash值 (例如: #sweet, #bitter, #spicy, #salt)
+    var hash = window.location.hash.substring(1); // 移除#符號
+    
+    // 如果有hash值且對應的細節區塊存在,就顯示該區塊
+    if (hash && document.getElementById(hash + '-detail')) {
+        showStyleDetail(hash);
+        
+        // 延遲滾動,確保內容已完全顯示
+        setTimeout(function() {
+            var detailElement = document.getElementById(hash + '-detail');
+            if (detailElement) {
+                // 取得元素距離頂部的位置,加上偏移量讓它顯示在更下面
+                var elementPosition = detailElement.getBoundingClientRect().top + window.pageYOffset;
+                var offsetPosition = elementPosition + 65; // 加上200px,讓它往下滾動更多
+                
+                // 平滑滾動到目標位置
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
+});
