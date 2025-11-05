@@ -32,209 +32,164 @@
                     <h2 class="page-subtitle">從保養、底妝到唇彩，一起練習成為更加閃亮的自己。</h2>
                 </div>
                 <div class="topic-image">
-                    <img src="images/step-hero.jpg" alt="化妝步驟主視覺" class="step-hero-image">
-                    <img src="images/step-hero.jpg" alt="化妝步驟主視覺" class="step-hero-image">
+                    <img src="images/step-before.jpg" alt="化妝步驟主視覺" class="step-hero-image">
+                    <img src="images/step-after.jpg" alt="化妝步驟主視覺" class="step-hero-image">
                 </div>
                 <div class="topic-hint">
                     <p>下滑開始學習！</p>
                 </div>
             </div>
-            <!-- 頁面標題 - 字級1 (最大) -->
-            <h1 class="page-title">化妝步驟</h1>
-            
-            <!-- 化妝品小介紹區塊 -->
-            <div class="product-intro-section">
-                <!-- 區塊標題 - 字級2 (中) -->
-                <h2 class="section-title">化妝品小介紹</h2>
-                <!-- 說明文字 - 字級3 (小) -->
-                <p class="section-description">在正式進入化妝步驟前，先了解一下化妝品吧！</p>
-                <!-- 產品清單 - 注意：間距統一、行高適中 -->
-                <ul class="product-list">
-                    <li class="product-item">
-                        <!-- 產品名稱 - 字級2 (中) -->
-                        <img src="images/foundation.jpg" alt="粉底液" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">粉底液</h3>
-                            <!-- 產品描述 - 字級3 (小) -->
-                            <p class="product-description">用於均勻膚色，打造完美底妝</p>
-                        </div>
-                    </li>
-                    <li class="product-item">
-                        <img src="images/concealer.jpg" alt="遮瑕膏" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">遮瑕膏</h3>
-                            <p class="product-description">遮蓋黑眼圈、痘疤等瑕疵</p>
-                        </div>
-                    </li>
-                    <li class="product-item">
-                        <img src="images/eyeshadow.jpg" alt="眼影" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">眼影</h3>
-                            <p class="product-description">增添眼部層次感與魅力</p>
-                        </div>
-                    </li>
-                    <li class="product-item">
-                        <img src="images/mascara.jpg" alt="睫毛膏" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">睫毛膏</h3>
-                            <p class="product-description">讓睫毛更濃密捲翹</p>
-                        </div>
-                    </li>
-                    <li class="product-item">
-                        <img src="images/blush.jpg" alt="腮紅" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">腮紅</h3>
-                            <p class="product-description">為臉頰增添好氣色</p>
-                        </div>
-                    </li>
-                    <li class="product-item">
-                        <img src="images/lipstick.jpg" alt="口紅" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-name">口紅</h3>
-                            <p class="product-description">提升整體妝容完整度</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
 
-            <!-- 膚質步驟區塊 - 同個版面切換內容 -->
-            <div class="skin-type-section">
-                <!-- 區塊標題 - 字級2 (中) -->
-                <h2 class="section-title">各種膚質的化妝步驟</h2>
+            <!-- STEP BY STEP 教學區塊 -->
+            <div class="step-by-step-section">
+                <h2 class="section-title">STEP BY STEP</h2>
                 
-                <!-- 切換按鈕組 - 注意：按鈕大小一致、間距統一、設計語言一致 -->
-                <div class="button-group">
-                    <button class="skin-type-btn active" onclick="showSkinType('oily')">油性肌膚</button>
-                    <button class="skin-type-btn" onclick="showSkinType('dry')">乾性肌膚</button>
-                    <button class="skin-type-btn" onclick="showSkinType('combination')">混合性肌膚</button>
+                <!-- 步驟按鈕組 -->
+                <div class="step-buttons">
+                    <button class="step-btn active" onclick="showStep(1)">STEP 1</button>
+                    <button class="step-btn" onclick="showStep(2)">STEP 2</button>
+                    <button class="step-btn" onclick="showStep(3)">STEP 3</button>
+                    <button class="step-btn" onclick="showStep(4)">STEP 4</button>
+                    <button class="step-btn" onclick="showStep(5)">STEP 5</button>
                 </div>
 
-                <!-- 油性肌膚內容區 - 預設顯示 -->
-                <div id="oily" class="skin-type-content active">
-                    <!-- 內容標題 - 字級2 (中) -->
-                    <h3 class="content-title">油性肌膚化妝步驟</h3>
-                    <!-- 步驟列表 - 注意：圖片尺寸統一、間距一致 -->
-                    <ul class="step-list">
-                        <li class="step-item">
-                            <img src="images/oily-step1.jpg" alt="油性肌膚步驟1" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 1：妝前控油</h4>
-                                <p class="step-description">使用控油妝前乳，減少出油狀況</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/oily-step2.jpg" alt="油性肌膚步驟2" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 2：霧面粉底</h4>
-                                <p class="step-description">選擇霧面或啞光粉底液</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/oily-step3.jpg" alt="油性肌膚步驟3" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 3：蜜粉定妝</h4>
-                                <p class="step-description">使用蜜粉加強定妝，延長持妝時間</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/oily-step4.jpg" alt="油性肌膚步驟4" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 4：眼妝</h4>
-                                <p class="step-description">使用眼部打底產品，防止暈染</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/oily-step5.jpg" alt="油性肌膚步驟5" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 5：腮紅與唇妝</h4>
-                                <p class="step-description">選擇持久型產品</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- STEP 1 內容 - 預設顯示 -->
+                <div id="step-1" class="step-content active">
+                    <div class="step-content-top">
+                        <div class="step-image">
+                            <img src="images/step1-1.jpg" alt="步驟1示意圖1" class="step-detail-image">
+                        </div>
+                        <div class="step-description">
+                            <h3 class="step-main-title">肌膚打底｜完美打底，讓妝容更貼合</h3>
+                            <p class="step-main-description">可以根據左圖選擇表格，確定自己適合哪個產品，選擇更適合你的保養產品。</p>
+                        </div>
+                        <p class="step-tip">開始上妝前，先用保濕乳液滋潤肌膚，再輕擦一層妝前乳，幫助隔離外界灰塵與油脂。</p>
+                    </div>
+                    <div class="step-content-bottom">
+                        <div class="step-description">
+                            <h3 class="step-main-title">肌膚打底｜少量多次的上妝</h3>
+                            <p class="step-main-description">接著選擇與膚色相近的粉底液按照右圖順序，以粉撲或氣墊輕拍全臉，內向外均勻推開。</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/step1-2.jpg" alt="步驟1示意圖2" class="step-detail-image">
+                        </div>
+                        <p class="step-tip">小提示： 若想讓妝感更自然，可用濕粉撲輕拍收尾。</p>
+                    </div>
                 </div>
 
-                <!-- 乾性肌膚內容區 - 預設隱藏 -->
-                <div id="dry" class="skin-type-content" style="display:none;">
-                    <h3 class="content-title">乾性肌膚化妝步驟</h3>
-                    <ul class="step-list">
-                        <li class="step-item">
-                            <img src="images/dry-step1.jpg" alt="乾性肌膚步驟1" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 1：保濕打底</h4>
-                                <p class="step-description">使用保濕妝前乳或精華液</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/dry-step2.jpg" alt="乾性肌膚步驟2" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 2：水潤粉底</h4>
-                                <p class="step-description">選擇滋潤型粉底液</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/dry-step3.jpg" alt="乾性肌膚步驟3" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 3：遮瑕</h4>
-                                <p class="step-description">使用保濕型遮瑕產品</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/dry-step4.jpg" alt="乾性肌膚步驟4" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 4：眼妝</h4>
-                                <p class="step-description">避免使用過於乾燥的眼影</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/dry-step5.jpg" alt="乾性肌膚步驟5" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 5：腮紅與唇妝</h4>
-                                <p class="step-description">使用霜狀或液狀產品</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- STEP 2 內容 - 預設隱藏 -->
+                <div id="step-2" class="step-content" style="display:none;">
+                    <div class="step-content-top">
+                        <div class="step-image">
+                            <img src="images/step2-1.jpg" alt="步驟2示意圖1" class="step-detail-image">
+                        </div>
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 2 標題</h3>
+                            <p class="step-main-description">STEP 2 說明文字</p>
+                        </div>
+                        <p class="step-tip">STEP 2 提示文字</p>
+                    </div>
+                    <div class="step-content-bottom">
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 2 小標題</h3>
+                            <p class="step-main-description">STEP 2 詳細說明</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/step2-2.jpg" alt="步驟2示意圖2" class="step-detail-image">
+                        </div>
+                        <p class="step-tip">小提示：STEP 2 提示文字</p>
+                    </div>
                 </div>
 
-                <!-- 混合性肌膚內容區 - 預設隱藏 -->
-                <div id="combination" class="skin-type-content" style="display:none;">
-                    <h3 class="content-title">混合性肌膚化妝步驟</h3>
-                    <ul class="step-list">
-                        <li class="step-item">
-                            <img src="images/combination-step1.jpg" alt="混合性肌膚步驟1" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 1：分區打底</h4>
-                                <p class="step-description">T字部位控油，兩頰保濕</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/combination-step2.jpg" alt="混合性肌膚步驟2" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 2：適中粉底</h4>
-                                <p class="step-description">選擇自然妝感的粉底</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/combination-step3.jpg" alt="混合性肌膚步驟3" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 3：局部定妝</h4>
-                                <p class="step-description">T字部位使用蜜粉定妝</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/combination-step4.jpg" alt="混合性肌膚步驟4" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 4：眼妝</h4>
-                                <p class="step-description">依照個人需求選擇產品</p>
-                            </div>
-                        </li>
-                        <li class="step-item">
-                            <img src="images/combination-step5.jpg" alt="混合性肌膚步驟5" class="step-image">
-                            <div class="step-content">
-                                <h4 class="step-title">步驟 5：腮紅與唇妝</h4>
-                                <p class="step-description">選擇適合的質地</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- STEP 3 內容 - 預設隱藏 -->
+                <div id="step-3" class="step-content" style="display:none;">
+                    <div class="step-content-top">
+                        <div class="step-image">
+                            <img src="images/step3-1.jpg" alt="步驟3示意圖1" class="step-detail-image">
+                        </div>
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 3 標題</h3>
+                            <p class="step-main-description">STEP 3 說明文字</p>
+                        </div>
+                        <p class="step-tip">STEP 3 提示文字</p>
+                    </div>
+                    <div class="step-content-bottom">
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 3 小標題</h3>
+                            <p class="step-main-description">STEP 3 詳細說明</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/step3-2.jpg" alt="步驟3示意圖2" class="step-detail-image">
+                        </div>
+                        <p class="step-tip">小提示：STEP 3 提示文字</p>
+                    </div>
+                </div>
+
+                <!-- STEP 4 內容 - 預設隱藏 -->
+                <div id="step-4" class="step-content" style="display:none;">
+                    <div class="step-content-top">
+                        <div class="step-image">
+                            <img src="images/step4-1.jpg" alt="步驟4示意圖1" class="step-detail-image">
+                        </div>
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 4 標題</h3>
+                            <p class="step-main-description">STEP 4 說明文字</p>
+                        </div>
+                        <p class="step-tip">STEP 4 提示文字</p>
+                    </div>
+                    <div class="step-content-bottom">
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 4 小標題</h3>
+                            <p class="step-main-description">STEP 4 詳細說明</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/step4-2.jpg" alt="步驟4示意圖2" class="step-detail-image">
+                        </div>
+                        <p class="step-tip">小提示：STEP 4 提示文字</p>
+                    </div>
+                </div>
+
+                <!-- STEP 5 內容 - 預設隱藏 -->
+                <div id="step-5" class="step-content" style="display:none;">
+                    <div class="step-content-top">
+                        <div class="step-image">
+                            <img src="images/step5-1.jpg" alt="步驟5示意圖1" class="step-detail-image">
+                        </div>
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 5 標題</h3>
+                            <p class="step-main-description">STEP 5 說明文字</p>
+                        </div>
+                        <p class="step-tip">STEP 5 提示文字</p>
+                    </div>
+                    <div class="step-content-bottom">
+                        <div class="step-description">
+                            <h3 class="step-main-title">STEP 5 小標題</h3>
+                            <p class="step-main-description">STEP 5 詳細說明</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="images/step5-2.jpg" alt="步驟5示意圖2" class="step-detail-image">
+                        </div>
+                        <p class="step-tip">小提示：STEP 5 提示文字</p>
+                    </div>
+                </div>
+
+                <!-- 桃紅色分隔線 -->
+                <div class="step-divider"></div>
+
+                <!-- 影片教學區域 - 固定顯示 -->
+                <div class="step-video-section">
+                    <div class="video-topic">一起跟著影片練習吧！</div>
+                    <div class="step-video-container">
+                        <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
+                    </div>
+                    <div class="step-video-text">
+                        <p>看影片學習上妝技巧，<br>動作更直觀！</p>
+                        <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
+                    </div>
+                    <div class="extra-link">
+                        <p>相關連結</p>
+                        <a href="https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8" class="extra-link-item">https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8</a>
+                    </div>
                 </div>
             </div>
         </section>
