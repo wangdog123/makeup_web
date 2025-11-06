@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   ?��??�基?�設�?
+   ======================================== */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========================================
+   ?��? Header
+   ======================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3%;
+    background-color: #FADADD; /* ?�色?�景 */
+    border-bottom: 1px solid #eee;
+    height: 100px;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #FF8894;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 80px;
+    list-style: none;
+}
+
+.nav-link {
+    font-size: 24px;
+    color: #555;
+    padding-bottom: 5px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #000;
+    border-bottom: 2px solid #888;
+}
+.topic{
+    display:flex;
+    padding: 50px 3%;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+.topic-title{
+    font-size: 64px;
+    position: static;
+    top:1%;
+}
+.topic-subtitle{
+    font-size: 32px;
+    margin-top: 8%;
+}
+.topic-hint{
+    width: 28%;
+    height: 15%;
+    background-color: #FAAAB2;
+    border-radius: 10px;
+    margin-top:5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.topic-hint p{
+    font-size: 24px;
+    color: black;
+}
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 3%;
+    /* margin-top: 1%; */
+    border-top: 1px solid #eee;
+    background-color: #FADADD;
+}
+
+.footer-text {
+    font-size: 24px;
+    color: #EDC5CE;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link img {
+    width: 60px;
+    height: 60px;
+   
+}
+/* ========================================
+   Step by Step Section
+   ======================================== */
+.step-title-and-button{
+    background-color: #EDC5CE;
+    padding: 5% 5%;
+    position: relative;
+    border-radius: 30px 30px 0 0;
+}
+.section-title{
+    font-size: 32px;
+    color:white;
+    position: absolute;
+    top: 15%; /* 調整?�個數?��??�制標�??��??��?�?*/
+    left: 8%; /* ?�容?��?左�?距�?�?*/
+}
+/* �B�J���s�e�� */
+.step-buttons {
+    display: flex;
+    justify-content: space-around; /* �����m�� */
+    align-items: center; /* �������?*/
+    gap: 20px; /* �۰ʭp�ⶡ�Z */
+    margin-top: 40px; /* �P���D���Z�� */
+}
+
+/* �B�J���s */
+.step-btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* ��Ϋ��s */
+    border: none;
+    background-color: #fff;
+    color: #FF0073;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+}
+
+.step-btn.active {
+    background-color: #FF8894;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.step-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ���s�������b�Y */
+.step-btn {
+    position: relative;
+}
+
+.step-btn:not(:last-child)::after {
+    content: '▶'; /* 箭頭符號 */
+    position: absolute;
+    left: calc(100% + 70px); /* 從按鈕右邊緣往右 50px */
+    top: 50%;
+    transform: translateY(-50%) scale(0.91); /* 反向縮放,抵消按鈕放大的影響 */
+    transform-origin: left center; /* 設定縮放原點在左側中心 */
+    color: #FFFFFF; /* 白色箭頭 */
+    font-size: 48px;
+}
+.step-content{
+    padding: 40px 5%;
+    display: block;
+}
+
+.step-content-top{
+    display: flex;
+    gap: 0;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    position: relative;
+    background-color: #EDC5CE; /* 粉色底部背景 */
+    padding: 0;
+    padding-top: 30px; /* 上方留空間給圖片超出 */
+    padding-bottom: 30px; /* 下方留空間 */
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15); /* 陰影效果 */
+}
+
+.step-content-top .step-image {
+    flex: 0 0 40%;
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 2;
+    margin-left: 3.5%;
+    margin-top: -130px; /* 向上超出 */
+    align-self: flex-start;
+}
+
+.step-content-top .step-description {
+    flex: 1;
+    background-color: transparent; /* 移除背景色 */
+    padding: 0;
+    padding-left: 5%;
+    padding-right: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.step-content-top .step-main-title {
+    position: absolute;
+    top: -100px; /* 放在圖片超出的右邊 */
+    left: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF0073; /* 桃紅色 */
+    margin: 0;
+    z-index: 3;
+}
+
+
+
+
+.step-content-bottom {
+    display: flex;
+    gap: 0;
+    margin-top: 150px;
+    margin-bottom: 40px;
+    position: relative;
+    background-color: #EDC5CE; /* 粉色底部背景 */
+    padding: 0;
+    padding-top: 30px; /* 上方留空間給圖片超出 */
+    padding-bottom: 30px; /* 下方留空間 */
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15); /* 陰影效果 */
+
+}
+
+.step-content-bottom .step-description {
+    flex: 1;
+    background-color: transparent; /* 移除背景色 */
+    padding: 0;
+    padding-left: 40px;
+    padding-right: 60px;
+    z-index: 1;
+    display: flex;
+    position: relative;
+    order: 1;
+}
+
+.step-content-bottom .step-main-title {
+    position: absolute;
+    top: -100px; /* 放在圖片超出的左邊 */
+    left: 51%;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF0073; /* 桃紅色 */
+    margin: 0;
+    z-index: 3;
+}
+
+.step-content-bottom .step-main-description-bottom {
+    font-size: 32px;
+    line-height: 1.6;
+    color: #fff;
+    display:flex;
+    align-items: center;
+    margin-left:5%;
+}
+
+.step-content-bottom .step-image,
+.step-content-bottom .step-image-mix {
+    flex: 0 0 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 2;
+    margin-right: 5%;
+    margin-top: -130px; /* 向上超出 */
+    align-self: flex-start;
+    order: 2;
+}
+
+.step-content-bottom .step-image-mix {
+    display: flex;
+}
+
+.step-content-bottom .step-image-mix .step-detail-image {
+    width: 100%;
+    max-width: 350px; /* 限制圖片最大高度 */
+    aspect-ratio: 1 / 1.1; /* 設定圖片比例 */
+    border-radius: 10px;
+    object-fit: cover; /* 保持比例並裁切 */
+}
+
+
+.step-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.step-main-title{
+    font-size: 32px;
+    font-weight: bold;
+    color: #E91E63;
+    margin-bottom: 15px;
+}
+
+.step-description{
+    width: 100%;
+}
+
+.step-main-description-top{
+    font-size: 32px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.step-main-description-bottom{
+    font-size: 32px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.step-tip-top {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    padding: 15px 0;
+    margin: 10px 0;
+}
+
+.step-tip-bottom {
+    text-align: center;
+    font-size: 24px;
+    color: #FF0073;
+    padding: 15px 0;
+    margin: 15px 0;
+}
+
+/* 桃紅色分隔線 */
+.step-divider {
+    width: 95%;
+    height: 3px;
+    background-color: #E91E63;
+    margin: 10px auto;
+    border-radius: 2px;
+    display:flex;
+    align-items: center;
+}
+
+/* 影片教學區域 */
+.step-video-section {
+    padding: 60px 5%;
+    /* background-color: #FFF5F7; */
+    /* margin-top: 50px; */
+}
+
+/* 影片區標題 */
+.video-topic {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    /* text-align: center; */
+    margin-bottom: 40px;
+    margin-left: 3%;
+}
+
+/* 影片容器 */
+.step-video-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    /* max-width: 1200px; */
+    margin: 0 3.5%;
+}
+
+/* YouTube 影片 */
+.step-video {
+    width: 720px;
+    height: 405px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 影片旁文字說明 */
+.step-video-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.step-video-text p {
+    font-size: 32px;
+    line-height: 1.8;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 相關連結區 */
+.extra-link {
+    margin-top: 40px;
+    /* text-align: center; */
+    margin-left: 4%;
+}
+
+.extra-link p {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.video-link {
+    display: inline-block;
+    color: #0066CC;
+    font-size: 16px;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.video-link:hover {
+    color: #E91E63;
+}
+
+.extra-link-item {
+    display: inline-block;
+    color: #0066CC;
+    font-size: 16px;
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+
+.extra-link-item:hover {
+    color: #E91E63;
+    text-decoration: underline;
+}
+
+/* 響應式設計 - 影片區 */
+@media (max-width: 992px) {
+    .step-video-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .step-video {
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .video-topic {
+        font-size: 24px;
+    }
+    
+    .step-video-text p {
+        font-size: 18px;
+        text-align: center;
+    }
+}

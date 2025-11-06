@@ -27,30 +27,35 @@
         <!-- 2. 化妝步驟區塊 -->
         <section class="steps-section">
             <div class="topic">
-                <div class="topic-text">
-                    <h1 class="page-title">化妝新手入門:<br>五步驟輕鬆打造自然妝容！</h1>
-                    <h2 class="page-subtitle">從保養、底妝到唇彩，一起練習成為更加閃亮的自己。</h2>
+                <div class="topic-left">
+                    <div class="topic-text">
+                        <h1 class="topic-title">化妝新手入門:<br>五步驟輕鬆打造自然妝容！</h1>
+                        <h2 class="topic-subtitle">從保養、底妝到唇彩，一起練習成為更加閃亮的自己。</h2>
+                    </div>
+                    <div class="topic-hint">
+                        <p>下滑開始學習！</p>
+                    </div>
                 </div>
-                <div class="topic-image">
+                <div class="topic-right">
                     <img src="images/step/step-hero.webp" alt="化妝步驟主視覺" class="step-hero-image">                </div>
-                </div>
-                <div class="topic-hint">
-                    <p>下滑開始學習！</p>
                 </div>
             </div>
 
             <!-- STEP BY STEP 教學區塊 -->
             <div class="step-by-step-section">
-                <h2 class="section-title">STEP BY STEP</h2>
-                
-                <!-- 步驟按鈕組 -->
-                <div class="step-buttons">
-                    <button class="step-btn active" onclick="showStep(1)">STEP 1</button>
-                    <button class="step-btn" onclick="showStep(2)">STEP 2</button>
-                    <button class="step-btn" onclick="showStep(3)">STEP 3</button>
-                    <button class="step-btn" onclick="showStep(4)">STEP 4</button>
-                    <button class="step-btn" onclick="showStep(5)">STEP 5</button>
+                <div class="step-title-and-button">
+                    <h2 class="section-title">STEP BY STEP</h2>
+                    <!-- 步驟按鈕組 -->
+                    <div class="step-buttons">
+                        <button class="step-btn active" onclick="showStep(1)">STEP 1</button>
+                        <button class="step-btn" onclick="showStep(2)">STEP 2</button>
+                        <button class="step-btn" onclick="showStep(3)">STEP 3</button>
+                        <button class="step-btn" onclick="showStep(4)">STEP 4</button>
+                        <button class="step-btn" onclick="showStep(5)">STEP 5</button>
+                    </div>
                 </div>
+
+
 
                 <!-- STEP 1 內容 - 預設顯示 -->
                 <div id="step-1" class="step-content active">
@@ -60,116 +65,127 @@
                         </div>
                         <div class="step-description">
                             <h3 class="step-main-title">肌膚打底｜完美打底，讓妝容更貼合</h3>
-                            <p class="step-main-description">可以根據左圖選擇表格，確定自己適合哪個產品，選擇更適合你的保養產品。</p>
+                            <p class="step-main-description-top">可以根據左圖選擇表格，確定自己適合哪個產品，選擇更適合你的保養產品。</p>
                         </div>
-                        <p class="step-tip">開始上妝前，先用保濕乳液滋潤肌膚，再輕擦一層妝前乳，幫助隔離外界灰塵與油脂。</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 開始上妝前，先用保濕乳液滋潤肌膚，再輕擦一層妝前乳，幫助隔離外界灰塵與油脂。</p>
                     <div class="step-content-bottom">
                         <div class="step-description">
                             <h3 class="step-main-title">肌膚打底｜少量多次的上妝</h3>
-                            <p class="step-main-description">接著選擇與膚色相近的粉底液按照右圖順序，以粉撲或氣墊輕拍全臉，內向外均勻推開。</p>
+                            <p class="step-main-description-bottom">接著選擇與膚色相近的粉底液按照右圖順序，以粉撲或氣墊輕拍全臉，內向外均勻推開。</p>
                         </div>
-                        <div class="step-image">
+                        <div class="step-image-mix">
                             <img src="images/step/step1-2-1.jpg" alt="步驟1示意圖2" class="step-detail-image">
                             <img src="images/step/step1-2-2.png" alt="步驟1示意圖2" class="step-detail-image">
                         </div>
-                        <p class="step-tip">小提示： 若想讓妝感更自然，可用濕粉撲輕拍收尾。</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 若想讓妝感更自然，可用濕粉撲輕拍收尾。</p>
                 </div>
 
                 <!-- STEP 2 內容 - 預設隱藏 -->
                 <div id="step-2" class="step-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
-                            <img src="images/step2-1.jpg" alt="步驟2示意圖1" class="step-detail-image">
+                            <img src="images/step/step2-1.jpg" alt="步驟2示意圖1" class="step-detail-image">
                         </div>
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 2 標題</h3>
-                            <p class="step-main-description">STEP 2 說明文字</p>
+                            <h3 class="step-main-title">遮瑕定妝｜打造無瑕光感</h3>
+                            <p class="step-main-description-top">精準遮瑕<br>使用遮瑕膏點在黑眼圈、痘疤或泛紅處，<br>
+用指腹輕拍邊緣讓顏色融入肌膚。
+注意不要整塊塗抹，避免變成厚粉感。</p>
                         </div>
-                        <p class="step-tip">STEP 2 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 可用兩種色號搭配修飾不同區域</p>
                     <div class="step-content-bottom">
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 2 小標題</h3>
-                            <p class="step-main-description">STEP 2 詳細說明</p>
+                            <h3 class="step-main-title">遮瑕定妝｜打造無瑕光感</h3>
+                            <p class="step-main-description-bottom">蜜粉定妝<br>用大刷子輕沾蜜粉，從T字部位開始定妝。<br>
+鼻翼與下巴可多加強一點，避免出油。<br>
+臉頰與眼下只需輕拍，保留自然光澤。</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step2-2.jpg" alt="步驟2示意圖2" class="step-detail-image">
+                            <img src="images/step/step2-2.jpg" alt="步驟2示意圖2" class="step-detail-image">
                         </div>
-                        <p class="step-tip">小提示：STEP 2 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 不要使用太多粉，否則會顯乾。</p>
                 </div>
 
                 <!-- STEP 3 內容 - 預設隱藏 -->
                 <div id="step-3" class="step-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
-                            <img src="images/step3-1.jpg" alt="步驟3示意圖1" class="step-detail-image">
+                            <img src="images/step/step3-1.jpg" alt="步驟3示意圖1" class="step-detail-image">
                         </div>
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 3 標題</h3>
-                            <p class="step-main-description">STEP 3 說明文字</p>
+                            <h3 class="step-main-title">眼妝魅力｜打造深邃神采</h3>
+                            <p class="step-main-description-top">打底與漸層<br>
+使用淺色眼影打底整個眼窩，再用中間色加強雙眼皮摺處，讓眼神更有深邃層次。</p>
                         </div>
-                        <p class="step-tip">STEP 3 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 眼影刷沾粉後先抖掉餘粉，顏色輕薄更自然。</p>
                     <div class="step-content-bottom">
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 3 小標題</h3>
-                            <p class="step-main-description">STEP 3 詳細說明</p>
+                            <h3 class="step-main-title">眼妝魅力｜打造深邃神采</h3>
+                            <p class="step-main-description-bottom">加強眼尾與睫毛<br>
+以深棕色眼影暈染眼尾三角區，再刷上睫毛膏或貼上自然假睫毛，眼神瞬間放大。</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step3-2.jpg" alt="步驟3示意圖2" class="step-detail-image">
+                            <img src="images/step/step3-2.jpg" alt="步驟3示意圖2" class="step-detail-image">
                         </div>
-                        <p class="step-tip">小提示：STEP 3 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 眼尾往上刷能提升精神感！</p>
                 </div>
 
                 <!-- STEP 4 內容 - 預設隱藏 -->
                 <div id="step-4" class="step-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
-                            <img src="images/step4-1.jpg" alt="步驟4示意圖1" class="step-detail-image">
+                            <img src="images/step/step4-1.jpg" alt="步驟4示意圖1" class="step-detail-image">
                         </div>
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 4 標題</h3>
-                            <p class="step-main-description">STEP 4 說明文字</p>
+                            <h3 class="step-main-title">腮紅修容｜增添氣色與立體感</h3>
+                            <p class="step-main-description-top">修容塑型<br>
+用修容粉輕刷顴骨下方與下巴線條，讓臉型更立體、輪廓更明顯。<br>
+鼻樑兩側也可加一點陰影修飾比例。</p>
                         </div>
-                        <p class="step-tip">STEP 4 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 修容要順著光線方向，避免髒髒感。</p>
                     <div class="step-content-bottom">
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 4 小標題</h3>
-                            <p class="step-main-description">STEP 4 詳細說明</p>
+                            <h3 class="step-main-title">腮紅修容｜增添氣色與立體感</h3>
+                            <p class="step-main-description-bottom">腮紅提氣色<br>
+微笑時，在笑肌上輕輕打圓暈染腮紅，選擇珊瑚粉或豆沙玫瑰色都很自然。<br>
+想可愛風可用更粉嫩的色調打高一點，想成熟風可打低一點。</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step4-2.jpg" alt="步驟4示意圖2" class="step-detail-image">
+                            <img src="images/step/step4-2.jpg" alt="步驟4示意圖2" class="step-detail-image">
                         </div>
-                        <p class="step-tip">小提示：STEP 4 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 腮紅與唇色同色系更協調。</p>
                 </div>
 
                 <!-- STEP 5 內容 - 預設隱藏 -->
                 <div id="step-5" class="step-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
-                            <img src="images/step5-1.jpg" alt="步驟5示意圖1" class="step-detail-image">
+                            <img src="images/step/step5-1.jpg" alt="步驟5示意圖1" class="step-detail-image">
                         </div>
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 5 標題</h3>
-                            <p class="step-main-description">STEP 5 說明文字</p>
+                            <h3 class="step-main-title">唇妝完成，綻放專屬氣色</h3>
+                            <p class="step-main-description-top">唇妝上色<br>
+先用護唇膏潤唇，再擦上主色唇膏，從內而外暈開，打造自然咬唇妝感。</p>
                         </div>
-                        <p class="step-tip">STEP 5 提示文字</p>
                     </div>
+                    <p class="step-tip-bottom">小提示： 想更豐唇可加一點亮澤唇蜜。</p>
                     <div class="step-content-bottom">
                         <div class="step-description">
-                            <h3 class="step-main-title">STEP 5 小標題</h3>
-                            <p class="step-main-description">STEP 5 詳細說明</p>
+                            <h3 class="step-main-title">完成妝容！</h3>
+                            <p class="step-main-description-bottom">最後檢視妝容<br>
+照鏡子確認底妝與腮紅邊界是否自然。</p>
                         </div>
                         <div class="step-image">
-                            <img src="images/step5-2.jpg" alt="步驟5示意圖2" class="step-detail-image">
+                            <img src="images/step/step5-2.jpg" alt="步驟5示意圖2" class="step-detail-image">
                         </div>
-                        <p class="step-tip">小提示：STEP 5 提示文字</p>
                     </div>
                 </div>
 
@@ -181,10 +197,10 @@
                     <div class="video-topic">一起跟著影片練習吧！</div>
                     <div class="step-video-container">
                         <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
-                    </div>
-                    <div class="step-video-text">
-                        <p>看影片學習上妝技巧，<br>動作更直觀！</p>
+                        <div class="step-video-text">
+                            <p>看影片學習上妝技巧，<br>動作更直觀！</p>
                         <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
+                        </div>
                     </div>
                     <div class="extra-link">
                         <p>相關連結</p>
@@ -199,9 +215,9 @@
     <footer class="site-footer">
         <p class="footer-text">&copy; 2025 新手化妝教學. All rights reserved.</p>
         <div class="footer-links">
-            <a href="#" class="footer-link"><img src="images/logo.png" alt="IG"></a>
-            <a href="#" class="footer-link"><img src="images/logo.png" alt="FB"></a>
-            <a href="#" class="footer-link"><img src="images/logo.png" alt="LINE"></a>
+            <a href="#" class="footer-link"><img src="images/index/IG.png" alt="IG"></a>
+            <a href="#" class="footer-link"><img src="images/index/FB.png" alt="FB"></a>
+            <a href="#" class="footer-link"><img src="images/index/LINE.png" alt="LINE"></a>
         </div>
     </footer>
 
