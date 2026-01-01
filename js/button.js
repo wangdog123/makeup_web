@@ -58,6 +58,22 @@ function showStep(stepNumber) {
             buttons[i].classList.add('active');
         }
     }
+    var targetSection = document.querySelector('.step-content.active');
+
+    if (targetSection) {
+        // 2. 設定 Header 的高度偏移量 (避免標題被 Header 擋住)
+        var headerOffset = 110; 
+
+        // 3. 計算該區塊距離頁面頂端的絕對位置
+        var elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+        var offsetPosition = elementPosition;
+
+        // 4. 平滑滾動過去
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
 }
 
 // 頁面載入時檢查URL hash,自動顯示對應的妝容細節

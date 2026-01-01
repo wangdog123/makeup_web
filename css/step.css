@@ -5,9 +5,11 @@
 }
 
 /* ========================================
-   ?��??�基?�設�?
-   ======================================== */
-
+?��??�基?�設�?
+======================================== */
+body{
+    /* margin: auto; */
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -19,8 +21,8 @@ img {
 }
 
 /* ========================================
-   ?��? Header
-   ======================================== */
+?��? Header
+======================================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -53,12 +55,12 @@ header {
     padding-bottom: 5px;
 }
 
-.nav-link.active,
-.nav-link:hover {
+.nav-link.active,.nav-link:hover {
     color: #000;
     border-bottom: 2px solid #888;
 }
 .topic{
+    height: calc((100vh - 100px)); /* 確保至少佔滿視窗高度減去header高度 */
     display:flex;
     padding: 50px 3%;
     /* align-items: center; */
@@ -69,23 +71,42 @@ header {
     position: static;
     top:1%;
 }
+.topic-text{
+    margin-top: 15%;
+}
 .topic-subtitle{
     font-size: 32px;
-    margin-top: 8%;
+    margin-top: 10%;
+}
+.topic-right{
+    /* width: 35%;
+    height: 80%;
+    background-color: #FFF5F7; */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.1); */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.topic-left{
+    display: flex;
+    flex-direction: column;
 }
 .topic-hint{
-    width: 28%;
-    height: 15%;
+    width: fit-content;
+    /* height: 15%; */
     background-color: #FAAAB2;
     border-radius: 10px;
-    margin-top:5%;
+    margin-top:30%;
     justify-content: center;
     align-items: center;
     display: flex;
+    padding: 1% 1%;
 
 }
 .topic-hint p{
     font-size: 24px;
+    white-space: nowrap;
     color: black;
 }
 .site-footer {
@@ -111,16 +132,27 @@ header {
 .footer-link img {
     width: 60px;
     height: 60px;
-   
+
 }
 /* ========================================
-   Step by Step Section
-   ======================================== */
+Step by Step Section
+======================================== */
+.step-by-step-section {
+    /* margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #FFF5F7;
+    padding: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); */
+    /* height: 100vh; */
+}
 .step-title-and-button{
     background-color: #EDC5CE;
     padding: 5% 5%;
     position: relative;
     border-radius: 30px 30px 0 0;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .section-title{
     font-size: 32px;
@@ -166,19 +198,21 @@ header {
 /* ���s�������b�Y */
 .step-btn {
     position: relative;
+    margin-right: 65px;
 }
 
 .step-btn:not(:last-child)::after {
     content: '▶'; /* 箭頭符號 */
     position: absolute;
-    left: calc(100% + 70px); /* 從按鈕右邊緣往右 50px */
+    left: 100%;
     top: 50%;
-    transform: translateY(-50%) scale(0.91); /* 反向縮放,抵消按鈕放大的影響 */
-    transform-origin: left center; /* 設定縮放原點在左側中心 */
+    transform: translateY(-50%) translateX(20px);
+    /* transform-origin: left center; 設定縮放原點在左側中心 */
     color: #FFFFFF; /* 白色箭頭 */
     font-size: 48px;
 }
 .step-content{
+    height: 100vh;
     padding: 40px 5%;
     display: block;
 }
@@ -454,7 +488,7 @@ header {
 }
 
 /* 響應式設計 - 影片區 */
-@media (max-width: 992px) {
+@media (max-width: 1024px) and (min-width:430px) {
     .step-video-container {
         flex-direction: column;
         gap: 30px;
@@ -476,3 +510,5 @@ header {
         text-align: center;
     }
 }
+@media (max-width: 430px) {
+    }

@@ -13,12 +13,13 @@
 <body>
     <!-- 導航選單 - 注意：按鈕大小一致、間距統一 -->
     <header>
-        <h1 class="logo">新手化妝教學</h1>
+        <img src="images/index/logo.png" alt="新手化妝教學 Logo" class="logo">
         <nav class="main-nav">
             <ul class="nav-list">
                 <li class="nav-item"><a href="index.html" class="nav-link active">首頁</a></li>
                 <li class="nav-item"><a href="steps.html" class="nav-link">化妝步驟</a></li>
                 <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
+                <li class="nav-item"><a href="recommendations.html" class="nav-link">討論區</a></li>
             </ul>
         </nav>
     </header>
@@ -32,15 +33,18 @@
                 <!-- 主視覺大圖 -->
                 <div class="hero-image-container">
                     <img src="images/index/home-hero.png" alt="化妝教學主視覺" class="hero-image">
+                    <div class="slogan-button">
+                        <a href="steps.html" class="button">立即學習</a>
+                    </div>
                 </div>
                 <!-- Slogan區 -->
                 <div class="slogan-container">
-                    <div class="slogan-text">
+                    <div class="slogan-image-wrapper">
+                        <img src="images/index/slogan-image.jpg" alt="slogan視覺圖" class="slogan-image">
+                    </div>
+                    <div class="slogan-text-wrapper">
                         <h1 class="slogan-maintext">從零開始學化妝</h1>
                         <h2 class="slogan-subtext">簡單教你變美的小技巧</h2>
-                    </div>
-                    <div class="slogan-button">
-                        <a href="steps.html" class="button">立即學習</a>
                     </div>
                 </div>
             </div>
@@ -57,32 +61,148 @@
                     <!-- 原始卡片 -->
                     <a href="recommendations.html#sweet" class="style-card">
                         <img src="images/index/sweet.jpg" alt="甜美妝容" class="style-card-image">
+                        <h3 class="style-small-title">甜</h3>
                     </a>
                     <a href="recommendations.html#salt" class="style-card">
                         <img src="images/index/salt.webp" alt="鹹妝容" class="style-card-image">
+                        <h3 class="style-small-title">鹹</h3>
                     </a>
                     <a href="recommendations.html#bitter" class="style-card">
                         <img src="images/index/bitter.jpg" alt="苦情妝容" class="style-card-image">
+                        <h3 class="style-small-title">苦</h3>
                     </a>
                     <a href="recommendations.html#spicy" class="style-card">
                         <img src="images/index/spicy.jpg" alt="辣妹妝容" class="style-card-image">
-                    </a>
-                    <a href="recommendations.html#sweet" class="style-card">
-                        <img src="images/index/sweet.jpg" alt="甜美妝容" class="style-card-image">
-                    </a>
-                    <a href="recommendations.html#salt" class="style-card">
-                        <img src="images/index/salt.webp" alt="鹹妝容" class="style-card-image">
-                    </a>
-                    <a href="recommendations.html#bitter" class="style-card">
-                        <img src="images/index/bitter.jpg" alt="苦情妝容" class="style-card-image">
-                    </a>
-                    <a href="recommendations.html#spicy" class="style-card">
-                        <img src="images/index/spicy.jpg" alt="辣妹妝容" class="style-card-image">
-                    </a>
-                    <a href="recommendations.html#sweet" class="style-card">
-                        <img src="images/index/sweet.jpg" alt="甜美妝容" class="style-card-image">
+                        <h3 class="style-small-title">辣</h3>
                     </a>
                     <!-- 複製的卡片，用於無縫滾動 -->
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="product-banner">
+                <img src="images/index/product-banner.jpg" alt="產品推薦廣告圖" class="product-banner-image">
+            </div>
+        </section>
+        <section class="forum-section">
+            <div class="forum-container">
+                <!-- 留言列表 -->
+                <div class="forum-list" id="forumList">
+                    <!-- 留言項目 - 可由資料庫動態生成 -->
+                    <div class="forum-item" data-id="1" id="comment-1">
+                        <div class="forum-avatar">
+                            <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                        </div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="forum-username">chiwawa</span>
+                                <div class="forum-actions">
+                                    <button class="forum-like" data-liked="false">
+                                        <span class="like-icon">♡</span>
+                                        <span class="like-count">0</span>
+                                    </button>
+                                    <button class="forum-dislike" data-disliked="false">
+                                        <span class="dislike-icon">🖓</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="forum-text">
+                                <p class="forum-message">最近粉底真的使用CANMAKE的產品!</p>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="forum-floor">B1,</span>
+                                <span class="forum-time">12月 25日 16:30</span>
+                                <button class="forum-btn forum-reply">回覆</button>
+                                <button class="forum-btn forum-share">分享</button>
+                                <button class="forum-toggle-replies" data-count="0" style="display: none;">
+                                    <span class="reply-count-text">查看其他 0 則留言</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 回覆列表 -->
+                    <div class="forum-replies-list" data-parent="1" style="display: none;"></div>
+                    
+                    <div class="forum-item" data-id="2" id="comment-2">
+                        <div class="forum-avatar">
+                            <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                        </div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="forum-username">chiwawa</span>
+                                <div class="forum-actions">
+                                    <button class="forum-like" data-liked="false">
+                                        <span class="like-icon">♡</span>
+                                        <span class="like-count">0</span>
+                                    </button>
+                                    <button class="forum-dislike" data-disliked="false">
+                                        <span class="dislike-icon">🖓</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="forum-text">
+                                <p class="forum-message"><a href="#comment-1" class="reply-to">B1</a> 我覺得沒有想像的好用耶...</p>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="forum-floor">B2,</span>
+                                <span class="forum-time">12月 25日 17:30</span>
+                                <button class="forum-btn forum-reply">回覆</button>
+                                <button class="forum-btn forum-share">分享</button>
+                                <button class="forum-toggle-replies" data-count="0" style="display: none;">
+                                    <span class="reply-count-text">查看其他 0 則留言</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 回覆列表 -->
+                    <div class="forum-replies-list" data-parent="2" style="display: none;"></div>
+
+                    <div class="forum-item" data-id="3" id="comment-3">
+                        <div class="forum-avatar">
+                            <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                        </div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="forum-username">chiwawa</span>
+                                <div class="forum-actions">
+                                    <button class="forum-like" data-liked="false">
+                                        <span class="like-icon">♡</span>
+                                        <span class="like-count">0</span>
+                                    </button>
+                                    <button class="forum-dislike" data-disliked="false">
+                                        <span class="dislike-icon">🖓</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="forum-text">
+                                <p class="forum-message">想要貓系眼妝,有沒有簡單的試驗TT</p>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="forum-floor">B3,</span>
+                                <span class="forum-time">12月 25日 18:00</span>
+                                <button class="forum-btn forum-reply">回覆</button>
+                                <button class="forum-btn forum-share">分享</button>
+                                <button class="forum-toggle-replies" data-count="0" style="display: none;">
+                                    <span class="reply-count-text">查看其他 0 則留言</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 回覆列表 -->
+                    <div class="forum-replies-list" data-parent="3" style="display: none;"></div>
+                    <!-- 展開/收合按鈕 -->
+                    <button class="forum-toggle-btn" id="forumToggleBtn">
+                        <span class="toggle-text"></span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                </div>
+
+                <!-- 留言輸入框 -->
+                <div class="forum-input-wrapper">
+                    <input type="text" 
+                           class="forum-input" 
+                           id="forumInput" 
+                           placeholder="我想說...">
                 </div>
             </div>
         </section>
@@ -99,8 +219,9 @@
     </footer>
     <!-- 自訂 JavaScript -->
     <script src="js/slider.js"></script>
-    <script src="js/parallax.js"></script>
+    <!-- <script src="js/parallax.js"></script> -->
     <script src="js/randomImage.js"></script>
+    <script src="js/forum.js"></script>
 
 </body>
 </html>
