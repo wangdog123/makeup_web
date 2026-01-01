@@ -41,6 +41,9 @@ class ForumManager {
         
         // 綁定查看回覆按鈕
         this.bindToggleRepliesButtons();
+        
+        // 綁定導航錨點平滑滾動
+        this.bindSmoothScroll();
     }
 
     // 新增留言 (之後會連接到資料庫)
@@ -409,6 +412,43 @@ class ForumManager {
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
+    }
+    
+    // 綁定導航錨點平滑滾動
+    bindSmoothScroll() {
+        // 選取所有帶有 # 的錨點連結
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        anchorLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // 根據目標元素類型決定對齊方式
+                        const scrollOptions = {
+                            behavior: 'smooth',
+                            block: targetElement.classList.contains('forum-section') || 
+                                   targetElement.classList.contains('product-banner') 
+                                   ? 'start'  // 討論區、產品橫幅對齊到頂部
+                                   : 'center' // 留言項目居中顯示
+                        };
+                        
+                        targetElement.scrollIntoView(scrollOptions);
+                        
+                        // 如果是留言項目，添加高亮效果
+                        if (targetElement.classList.contains('forum-item')) {
+                            targetElement.style.backgroundColor = '#FFE4E9';
+                            setTimeout(() => {
+                                targetElement.style.backgroundColor = '';
+                            }, 1000);
+                        }
+                    }
+                }
+            });
+        });
     }
 
     // 從資料庫載入留言 (之後實作)

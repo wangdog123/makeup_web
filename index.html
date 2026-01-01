@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="index.html" class="nav-link active">首頁</a></li>
                 <li class="nav-item"><a href="steps.html" class="nav-link">化妝步驟</a></li>
                 <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
-                <li class="nav-item"><a href="recommendations.html" class="nav-link">討論區</a></li>
+                <li class="nav-item"><a href="#product-banner" class="nav-link">討論區</a></li>
             </ul>
         </nav>
     </header>
@@ -80,11 +80,11 @@
             </div>
         </section>
         <section>
-            <div class="product-banner">
+            <div class="product-banner" id="product-banner">
                 <img src="images/index/product-banner.jpg" alt="產品推薦廣告圖" class="product-banner-image">
             </div>
         </section>
-        <section class="forum-section">
+        <section class="forum-section" id="forum-section">
             <div class="forum-container">
                 <!-- 留言列表 -->
                 <div class="forum-list" id="forumList">
@@ -190,6 +190,39 @@
                     </div>
                     <!-- 回覆列表 -->
                     <div class="forum-replies-list" data-parent="3" style="display: none;"></div>
+                    <div class="forum-item" data-id="4" id="comment-4">
+                        <div class="forum-avatar">
+                            <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                        </div>
+                        <div class="forum-content">
+                            <div class="forum-header">
+                                <span class="forum-username">chiwawa</span>
+                                <div class="forum-actions">
+                                    <button class="forum-like" data-liked="false">
+                                        <span class="like-icon">♡</span>
+                                        <span class="like-count">0</span>
+                                    </button>
+                                    <button class="forum-dislike" data-disliked="false">
+                                        <span class="dislike-icon">🖓</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="forum-text">
+                                <p class="forum-message">哇哇哇</p>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="forum-floor">B4,</span>
+                                <span class="forum-time">12月 25日 18:30</span>
+                                <button class="forum-btn forum-reply">回覆</button>
+                                <button class="forum-btn forum-share">分享</button>
+                                <button class="forum-toggle-replies" data-count="0" style="display: none;">
+                                    <span class="reply-count-text">查看其他 0 則留言</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 回覆列表 -->
+                    <div class="forum-replies-list" data-parent="4" style="display: none;"></div>                    
                     <!-- 展開/收合按鈕 -->
                     <button class="forum-toggle-btn" id="forumToggleBtn">
                         <span class="toggle-text"></span>
