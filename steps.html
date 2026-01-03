@@ -13,12 +13,18 @@
 <body>
     <!-- 導航選單 - 注意：按鈕大小一致、間距統一 -->
     <header>
-        <h1 class="logo">新手化妝教學</h1>
-        <nav class="main-nav">
+        <img src="images/index/logo.png" alt="新手化妝教學 Logo" class="logo">
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="開啟選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
             <ul class="nav-list">
                 <li class="nav-item"><a href="index.html" class="nav-link">首頁</a></li>
                 <li class="nav-item"><a href="steps.html" class="nav-link active">化妝步驟</a></li>
                 <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
+                <li class="nav-item"><a href="#product-banner" class="nav-link">討論區</a></li>
             </ul>
         </nav>
     </header>
@@ -33,16 +39,123 @@
                         <h2 class="topic-subtitle">從保養、底妝到唇彩，一起練習成為更加閃亮的自己。</h2>
                     </div>
                     <div class="topic-hint">
-                        <p>下滑開始學習！</p>
+                        <p class="arrow-down">▼</p><p>下滑開始學習！</p><p class="arrow-down">▼</p>
                     </div>
                 </div>
                 <div class="topic-right">
-                    <img src="images/step/step-hero.webp" alt="化妝步驟主視覺" class="step-hero-image">                </div>
+                    <img src="images/step/step-hero.jpg" alt="化妝步驟主視覺" class="step-hero-image">                </div>
                 </div>
             </div>
 
-            <!-- STEP BY STEP 教學區塊 -->
-            <div class="step-by-step-section">
+            <!-- 膚質測試區塊 -->
+            <div class="skin-type-section">
+                <div class="skin-type-header">
+                    <select class="skin-type-select" onchange="toggleSection(this.value)">
+                        <option value="skin-test">了解膚質</option>
+                        <option value="makeup-steps">化妝步驟</option>
+                    </select>
+                </div>
+                
+                <!-- 膚質類型按鈕 -->
+                <div class="skin-type-buttons">
+                    <button class="skin-type-btn active" onclick="showSkinType('neutral')">中性</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showSkinType('oily')">油性</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showSkinType('combination')">混和</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showSkinType('dry')">乾性</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showSkinType('sensitive')">敏感</button>
+                </div>
+            </div>
+
+            <!-- 膚質內容區域 -->
+            <div class="skin-type-content">
+                <!-- 側邊導航按鈕 - 統一放在外層 -->
+                <div class="skin-type-nav">
+                    <button class="skin-type-btn active" onclick="showSkinType('neutral')">中性</button>
+                    <button class="skin-type-btn" onclick="showSkinType('oily')">油性</button>
+                    <button class="skin-type-btn" onclick="showSkinType('combination')">混和</button>
+                    <button class="skin-type-btn" onclick="showSkinType('dry')">乾性</button>
+                    <button class="skin-type-btn" onclick="showSkinType('sensitive')">敏感</button>
+                </div>
+                
+                <!-- 中性膚質 -->
+                <div id="neutral-content" class="skin-content active">
+                    <div class="skin-illustration">
+                        <img src="images/step/neutral-skin.png" alt="中性膚質" onerror="this.style.display='none'">
+                    </div>
+                        <div class="skin-details">
+                            <div class="skin-detail-item">
+                                <h3>混油</h3>
+                                <div class="detail-section">
+                                    <h4>特質</h4>
+                                    <p>★T區容易出油</p>
+                                    <p>★臉頰皮膚油水平衡</p>
+                                    <p>★夏季偏油，冬季偏乾</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>護膚重點</h4>
+                                    <p>★分區護理、T區控油</p>
+                                    <p>★臉頰皮膚油水平衡</p>
+                                    <p>★夏季偏油，冬季偏乾</p>
+                                </div>
+                            </div>
+                            <div class="skin-detail-item">
+                                <h3>混乾</h3>
+                                <div class="detail-section">
+                                    <h4>特質</h4>
+                                    <p>★T區容易出油</p>
+                                    <p>★臉頰皮膚油水平衡</p>
+                                    <p>★夏季偏油，冬季偏乾</p>
+                                </div>
+                                <div class="detail-section">
+                                    <h4>護膚重點</h4>
+                                    <p>★分區護理、T區控油</p>
+                                    <p>★臉頰皮膚油水平衡</p>
+                                    <p>★夏季偏油，冬季偏乾</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- 其他膚質内容 -->
+                <div id="oily-content" class="skin-content" style="display:none;">
+                    <p>油性肌膚內容...</p>
+                </div>
+                <div id="combination-content" class="skin-content" style="display:none;">
+                    <p>混和肌膚內容...</p>
+                </div>
+                <div id="dry-content" class="skin-content" style="display:none;">
+                    <p>乾性肌膚內容...</p>
+                </div>
+                <div id="sensitive-content" class="skin-content" style="display:none;">
+                    <p>敏感肌膚內容...</p>
+                </div>
+            </div>
+
+            <!-- 桃紅色分隔線 -->
+            <!-- <div class="step-divider"></div> -->
+
+            <!-- 影片教學區域 - 固定顯示 -->
+            <div class="step-video-section">
+                <div class="video-topic">一起跟著影片練習吧！</div>
+                <div class="step-video-container">
+                    <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
+                    <div class="step-video-text">
+                        <p>看影片學習上妝技巧，<br>動作更直觀！</p>
+                    <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
+                    </div>
+                </div>
+                <div class="extra-link">
+                    <p>相關連結</p>
+                    <a href="https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8" class="extra-link-item">https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8</a>
+                </div>
+            </div>
+
+            <!-- STEP BY STEP 教學區塊 (保留原有功能) -->
+            <div class="step-by-step-section" style="display:none;">
                 <div class="step-title-and-button">
                     <h2 class="section-title">STEP BY STEP</h2>
                     <!-- 步驟按鈕組 -->
@@ -186,25 +299,6 @@
                         <div class="step-image">
                             <img src="images/step/step5-2.jpg" alt="步驟5示意圖2" class="step-detail-image">
                         </div>
-                    </div>
-                </div>
-
-                <!-- 桃紅色分隔線 -->
-                <div class="step-divider"></div>
-
-                <!-- 影片教學區域 - 固定顯示 -->
-                <div class="step-video-section">
-                    <div class="video-topic">一起跟著影片練習吧！</div>
-                    <div class="step-video-container">
-                        <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
-                        <div class="step-video-text">
-                            <p>看影片學習上妝技巧，<br>動作更直觀！</p>
-                        <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
-                        </div>
-                    </div>
-                    <div class="extra-link">
-                        <p>相關連結</p>
-                        <a href="https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8" class="extra-link-item">https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8</a>
                     </div>
                 </div>
             </div>

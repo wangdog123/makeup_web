@@ -102,3 +102,67 @@ window.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 });
+
+// 膚質類型切換功能
+function showSkinType(type) {
+    // 移除所有按鈕的active class
+    var allButtons = document.querySelectorAll('.skin-type-btn');
+    for (var i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
+    }
+    
+    // 隱藏所有膚質內容
+    var contents = document.getElementsByClassName('skin-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = 'none';
+        contents[i].classList.remove('active');
+    }
+    
+    // 顯示選中的膚質內容
+    var selectedContent = document.getElementById(type + '-content');
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
+        selectedContent.classList.add('active');
+    }
+    
+    // 為所有對應按鈕添加active class（頂部和側邊）
+    allButtons = document.querySelectorAll('.skin-type-btn');
+    for (var i = 0; i < allButtons.length; i++) {
+        var onclickAttr = allButtons[i].getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes("'" + type + "'")) {
+            allButtons[i].classList.add('active');
+        }
+    }
+    setTimeout(function() {
+        var skinTypeContent = document.querySelector('.skin-type-content');
+        if (skinTypeContent) {
+            var headerOffset = 0;
+            var elementPosition = skinTypeContent.getBoundingClientRect().top + window.pageYOffset;
+            var offsetPosition = elementPosition - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }, 100);
+}
+
+// 下拉選單切換功能
+function toggleSection(value) {
+    var skinTypeSection = document.querySelector('.skin-type-section');
+    var skinTypeContent = document.querySelector('.skin-type-content');
+    var stepByStepSection = document.querySelector('.step-by-step-section');
+    
+    if (value === 'skin-test') {
+        // 顯示膚質測試
+        skinTypeSection.style.display = 'block';
+        skinTypeContent.style.display = 'block';
+        stepByStepSection.style.display = 'none';
+    } else if (value === 'makeup-steps') {
+        // 顯示化妝步驟
+        skinTypeSection.style.display = 'none';
+        skinTypeContent.style.display = 'none';
+        stepByStepSection.style.display = 'block';
+    }
+}
