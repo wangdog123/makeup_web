@@ -13,12 +13,18 @@
 <body>
     <!-- 導航選單 - 注意：按鈕大小一致、間距統一 -->
     <header>
-        <h1 class="logo">新手化妝教學</h1>
-        <nav class="main-nav">
+        <img src="images/index/logo.png" alt="新手化妝教學 Logo" class="logo">
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="開啟選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
             <ul class="nav-list">
                 <li class="nav-item"><a href="index.html" class="nav-link">首頁</a></li>
                 <li class="nav-item"><a href="steps.html" class="nav-link">化妝步驟</a></li>
                 <li class="nav-item"><a href="recommendations.html" class="nav-link active">推薦妝容</a></li>
+                <li class="nav-item"><a href="index.html#product-banner" class="nav-link">討論區</a></li>
             </ul>
         </nav>
     </header>
@@ -35,9 +41,9 @@
             
             <!-- 妝容風格推薦區塊 -->
             <div class="makeup-style-recommendations">
-                <div class="style-groups-container">
+                <div class="style-groups-container" style="display:none;">
                     <!-- 甜美妝容區塊 -->
-                    <div id="sweet" class="style-group sweet">
+                    <div id="sweet" class="style-group sweet" >
                         <!-- 風格標題 - 字級2 (中) -->
                         <div class="style-small-titlearea">
                             <h3 class="style-small-title">甜</h3>
@@ -110,149 +116,156 @@
                         </div>
                     </div>
                 </div>
-                <div class="style-groups-hint">
+                <div class="style-groups-hint" style="display:none;">
                     <div class="style-groups-hint1">
                         <p>下滑查看妝容詳情</p>
                     </div>
-                    <div class="style-groups-hint2"> 
+                    <div class="style-groups-hint2" style="display:none;"> 
                         <a href="https://www.elle.com/tw/beauty/health/g44650483/check-your-style/">不知道自己屬於什麼長相?進來測測看吧!</a>
                     </div>
-                </div>
+                </div> 
                 <!--妝容細節-->
                 <div class="style-groups-details">
                     <!-- 甜美妝容細節 - 預設顯示 -->
-                    <div id="sweet-detail" class="style-detail-content active">
+                    <div id="sweet-detail" class="style-detail-content active sweet-style">
+                        <!-- 切換按鈕組 -->
+                        <div class="style-groups-button">
+                            <button class="style-detail-btn btn-sweet active" onclick="showStyleDetail('sweet')">甜</button>
+                            <button class="style-detail-btn btn-bitter" onclick="showStyleDetail('bitter')">苦</button>
+                            <button class="style-detail-btn btn-spicy" onclick="showStyleDetail('spicy')">辣</button>
+                            <button class="style-detail-btn btn-salt" onclick="showStyleDetail('salt')">鹽</button>
+                        </div>
                         <div class="style-detail-without-video">
                             <div class="style-detail-image">
                                 <img src="images/rec/sweet2.jpg" alt="甜美妝容細節" class="makeup-image">
-                                <!-- 切換按鈕組 -->
-                                <div class="style-groups-button">
-                                    <button class="style-detail-btn active" onclick="showStyleDetail('sweet')">甜</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('bitter')">苦</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('spicy')">辣</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('salt')">鹽</button>
-                                </div>
                             </div>
                             <div class="style-detail-text">
                                 <h3 class="style-detail-title">純慾妝</h3>
-                                <p class="style-detail-subtitle">化妝品推薦</p>
-                                <p class="style-description">底妝:推薦使用帶光澤型</p>
-                                <p class="style-description">眼影:可選擇奶茶、玫瑰或大地色系，堆疊臥蠶</p>
-                                <p class="style-description">腮紅:以肉粉色或杏色為主，並利用濕衣服粉打亮</p>
-                                <p class="style-description">唇妝:建議使用香面色，打造出自然透透的純欲感</p>
-                            </div>
-                        </div>
-                        <!-- 影片教學分區 -->
-                        <div class="style-video-section">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/zDnFiCoFIp0" frameborder="0" allowfullscreen class="makeup-video"></iframe>
-                            </div>
-                            <div class="video-description">
-                                <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                                <div class="style-detail-text-content">
+                                    <p class="style-detail-subtitle">化妝品推薦</p>
+                                    <p class="style-description">底妝:推薦使用帶光澤型</p>
+                                    <p class="style-description">眼影:可選擇奶茶、玫瑰或大地色系，堆疊臥蠶</p>
+                                    <p class="style-description">腮紅:以肉粉色或杏色為主，並利用濕衣服粉打亮</p>
+                                    <p class="style-description">唇妝:建議使用香面色，打造出自然透透的純欲感</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 苦情妝容細節 - 預設隱藏 -->
-                    <div id="bitter-detail" class="style-detail-content" style="display:none;">
+                    <div id="bitter-detail" class="style-detail-content bitter-style" style="display:none;">
+                        <!-- 切換按鈕組 -->
+                        <div class="style-groups-button">
+                            <button class="style-detail-btn btn-sweet" onclick="showStyleDetail('sweet')">甜</button>
+                            <button class="style-detail-btn btn-bitter active" onclick="showStyleDetail('bitter')">苦</button>
+                            <button class="style-detail-btn btn-spicy" onclick="showStyleDetail('spicy')">辣</button>
+                            <button class="style-detail-btn btn-salt" onclick="showStyleDetail('salt')">鹽</button>
+                        </div>
                         <div class="style-detail-without-video">
                             <div class="style-detail-image">
                                 <img src="images/rec/bitter2.png" alt="苦情妝容細節" class="makeup-image">
-                                <!-- 切換按鈕組 -->
-                                <div class="style-groups-button">
-                                    <button class="style-detail-btn" onclick="showStyleDetail('sweet')">甜</button>
-                                    <button class="style-detail-btn active" onclick="showStyleDetail('bitter')">苦</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('spicy')">辣</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('salt')">鹽</button>
-                                </div>
                             </div>
                             <div class="style-detail-text">
                                 <h3 class="style-detail-title">法式妝</h3>
-                                <p class="style-detail-subtitle">化妝品推薦</p>
-                                <p class="style-description">底妝:霧面、無瑕或控油持妝的粉底液</p>
-                                <p class="style-description">眼影:低飽和度的色彩，或是有些術感的「油畫系列」眼影盤</p>
-                                <p class="style-description">腮紅:粉橘色或帶紫藍色調的粉紫色系</p>
-                                <p class="style-description">唇妝:可選擇帶點淺豆沙色，打造自然的裸妝感</p>
-                            </div>
-                        </div>
-                        <!-- 影片教學分區 -->
-                        <div class="style-video-section">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/vr0YAKQFz50" frameborder="0" allowfullscreen class="makeup-video"></iframe>
-                            </div>
-                            <div class="video-description">
-                                <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                                <div class="style-detail-text-content">
+                                    <p class="style-detail-subtitle">化妝品推薦</p>
+                                    <p class="style-description">底妝:霧面、無瑕或控油持妝的粉底液</p>
+                                    <p class="style-description">眼影:低飽和度的色彩，或是有些術感的「油畫系列」眼影盤</p>
+                                    <p class="style-description">腮紅:粉橘色或帶紫藍色調的粉紫色系</p>
+                                    <p class="style-description">唇妝:可選擇帶點淺豆沙色，打造自然的裸妝感</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 辣妹妝容細節 - 預設隱藏 -->
-                    <div id="spicy-detail" class="style-detail-content" style="display:none;">
+                    <div id="spicy-detail" class="style-detail-content spicy-style" style="display:none;">
+                        <!-- 切換按鈕組 -->
+                        <div class="style-groups-button">
+                            <button class="style-detail-btn btn-sweet" onclick="showStyleDetail('sweet')">甜</button>
+                            <button class="style-detail-btn btn-bitter" onclick="showStyleDetail('bitter')">苦</button>
+                            <button class="style-detail-btn btn-spicy active" onclick="showStyleDetail('spicy')">辣</button>
+                            <button class="style-detail-btn btn-salt" onclick="showStyleDetail('salt')">鹽</button>
+                        </div>
                         <div class="style-detail-without-video">
                             <div class="style-detail-image">
                                 <img src="images/rec/spicy2.jpg" alt="辣妹妝容細節" class="makeup-image">
-                                <!-- 切換按鈕組 -->
-                                <div class="style-groups-button">
-                                    <button class="style-detail-btn" onclick="showStyleDetail('sweet')">甜</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('bitter')">苦</button>
-                                    <button class="style-detail-btn active" onclick="showStyleDetail('spicy')">辣</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('salt')">鹽</button>
-                                </div>
                             </div>
                             <div class="style-detail-text">
                                 <h3 class="style-detail-title">亞裔妝</h3>
-                                <p class="style-detail-subtitle">化妝品推薦</p>
-                                <p class="style-description">底妝:均勻膚色且遮瑕力適中</p>
-                                <p class="style-description">眼影:選擇大地色系、灰色系或水泥灰色系</p>
-                                <p class="style-description">腮紅:無花果紅調紅、雙C修容</p>
-                                <p class="style-description">唇妝:裸色系、粉裸色或低飽和度的莓紅感</p>
-                            </div>
-                        </div>
-                        <!-- 影片教學分區 -->
-                        <div class="style-video-section">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/x87yeEjjN34" frameborder="0" allowfullscreen class="makeup-video"></iframe>
-                            </div>
-                            <div class="video-description">
-                                <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                                <div class="style-detail-text-content">
+                                    <p class="style-detail-subtitle">化妝品推薦</p>
+                                    <p class="style-description">底妝:均勻膚色且遮瑕力適中</p>
+                                    <p class="style-description">眼影:選擇大地色系、灰色系或水泥灰色系</p>
+                                    <p class="style-description">腮紅:無花果紅調紅、雙C修容</p>
+                                    <p class="style-description">唇妝:裸色系、粉裸色或低飽和度的莓紅感</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 鹽系妝容細節 - 預設隱藏 -->
-                    <div id="salt-detail" class="style-detail-content" style="display:none;">
+                    <div id="salt-detail" class="style-detail-content salt-style" style="display:none;">
+                        <!-- 切換按鈕組 -->
+                        <div class="style-groups-button">
+                            <button class="style-detail-btn btn-sweet" onclick="showStyleDetail('sweet')">甜</button>
+                            <button class="style-detail-btn btn-bitter" onclick="showStyleDetail('bitter')">苦</button>
+                            <button class="style-detail-btn btn-spicy" onclick="showStyleDetail('spicy')">辣</button>
+                            <button class="style-detail-btn btn-salt active" onclick="showStyleDetail('salt')">鹽</button>
+                        </div>
                         <div class="style-detail-without-video">
                             <div class="style-detail-image">
                                 <img src="images/rec/salt2.jpg" alt="鹽系妝容細節" class="makeup-image">
-                                <!-- 切換按鈕組 -->
-                                <div class="style-groups-button">
-                                    <button class="style-detail-btn" onclick="showStyleDetail('sweet')">甜</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('bitter')">苦</button>
-                                    <button class="style-detail-btn" onclick="showStyleDetail('spicy')">辣</button>
-                                    <button class="style-detail-btn active" onclick="showStyleDetail('salt')">鹽</button>
-                                </div>
                             </div>
                             <div class="style-detail-text">
                                 <h3 class="style-detail-title">氧氣妝</h3>
-                                <p class="style-detail-subtitle">化妝品推薦</p>
-                                <p class="style-description">底妝:質地輕盈清順，打造絲絨奶油光澤肌</p>
-                                <p class="style-description">眼影:大地色系、米棕色調的眼影盤</p>
-                                <p class="style-description">腮紅:質地輕盈、能營造自然紅潤的腮紅</p>
-                                <p class="style-description">唇妝:水光感層質或質地輕盈的絲絨/霧光唇膏</p>
-                            </div>
-                        </div>
-                        <!-- 影片教學分區 -->
-                        <div class="style-video-section">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/lkUwKl-SN9k" frameborder="0" allowfullscreen class="makeup-video"></iframe>
-                            </div>
-                            <div class="video-description">
-                                <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                                <div class="style-detail-text-content">
+                                    <p class="style-detail-subtitle">化妝品推薦</p>
+                                    <p class="style-description">底妝:質地輕盈清順，打造絲絨奶油光澤肌</p>
+                                    <p class="style-description">眼影:大地色系、米棕色調的眼影盤</p>
+                                    <p class="style-description">腮紅:質地輕盈、能營造自然紅潤的腮紅</p>
+                                    <p class="style-description">唇妝:水光感層質或質地輕盈的絲絨/霧光唇膏</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
+            <!-- 獨立影片教學區域 -->
+            <div class="style-video-section">
+                <div id="sweet-video" class="video-content active">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/zDnFiCoFIp0" frameborder="0" allowfullscreen class="makeup-video"></iframe>
+                    </div>
+                    <div class="video-description">
+                        <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                    </div>
+                </div>
+                <div id="bitter-video" class="video-content" style="display:none;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/vr0YAKQFz50" frameborder="0" allowfullscreen class="makeup-video"></iframe>
+                    </div>
+                    <div class="video-description">
+                        <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                    </div>
+                </div>
+                <div id="spicy-video" class="video-content" style="display:none;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/x87yeEjjN34" frameborder="0" allowfullscreen class="makeup-video"></iframe>
+                    </div>
+                    <div class="video-description">
+                        <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                    </div>
+                </div>
+                <div id="salt-video" class="video-content" style="display:none;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/lkUwKl-SN9k" frameborder="0" allowfullscreen class="makeup-video"></iframe>
+                    </div>
+                    <div class="video-description">
+                        <p>影片教學更清楚!<br>一起化出最美的妝吧~</p>
+                    </div>
+                </div>
+            </div>            
         </section>
     </main>
 
@@ -266,6 +279,7 @@
         </div>
     </footer>
 
+    <script src="js/menu.js"></script>
     <script src="js/button.js"></script>
 
 </body>

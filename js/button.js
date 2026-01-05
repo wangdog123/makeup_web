@@ -13,10 +13,24 @@ function showStyleDetail(style) {
         contents[i].classList.remove('active');
     }
     
+    // 隱藏所有影片內容
+    var videos = document.getElementsByClassName('video-content');
+    for (var i = 0; i < videos.length; i++) {
+        videos[i].style.display = 'none';
+        videos[i].classList.remove('active');
+    }
+    
     // 顯示選中的細節內容
     var selectedContent = document.getElementById(style + '-detail');
     selectedContent.style.display = 'block';
     selectedContent.classList.add('active');
+    
+    // 顯示選中的影片內容
+    var selectedVideo = document.getElementById(style + '-video');
+    if (selectedVideo) {
+        selectedVideo.style.display = 'flex';
+        selectedVideo.classList.add('active');
+    }
     
     // 為所有對應風格的按鈕添加active class
     var buttons = document.getElementsByClassName('style-detail-btn');
@@ -31,14 +45,22 @@ function showStyleDetail(style) {
 
 // 化妝步驟切換功能
 function showStep(stepNumber) {
+    // 取得所有相關按鈕（上方按鈕列 + 側邊導航列）
+    var topButtons = document.querySelectorAll('.step-type-buttons .skin-type-btn');
+    var sideButtons = document.querySelectorAll('[data-section="color-makeup"] .skin-type-btn');
+    var allButtons = [];
+    
+    // 合併按鈕陣列
+    for(var i=0; i<topButtons.length; i++) allButtons.push(topButtons[i]);
+    for(var i=0; i<sideButtons.length; i++) allButtons.push(sideButtons[i]);
+
     // 移除所有按鈕的active class
-    var buttons = document.getElementsByClassName('step-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('active');
+    for (var i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
     }
     
     // 隱藏所有步驟內容區塊
-    var contents = document.getElementsByClassName('step-content');
+    var contents = document.querySelectorAll('[data-section="color-makeup"] .skin-content');
     for (var i = 0; i < contents.length; i++) {
         contents[i].style.display = 'none';
         contents[i].classList.remove('active');
@@ -46,34 +68,26 @@ function showStep(stepNumber) {
     
     // 顯示選中的步驟內容
     var selectedContent = document.getElementById('step-' + stepNumber);
-    selectedContent.style.display = 'block';
-    selectedContent.classList.add('active');
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
+        selectedContent.classList.add('active');
+    }
     
-    // 為所有對應步驟的按鈕添加active class
-    var buttons = document.getElementsByClassName('step-btn');
-    for (var i = 0; i < buttons.length; i++) {
-        // 檢查按鈕的onclick屬性中是否包含當前選中的步驟編號
-        var onclickAttr = buttons[i].getAttribute('onclick');
+    // 為對應按鈕添加active class
+    for (var i = 0; i < allButtons.length; i++) {
+        var onclickAttr = allButtons[i].getAttribute('onclick');
         if (onclickAttr && onclickAttr.includes('(' + stepNumber + ')')) {
-            buttons[i].classList.add('active');
+            allButtons[i].classList.add('active');
         }
     }
-    var targetSection = document.querySelector('.step-content.active');
 
-    if (targetSection) {
-        // 2. 設定 Header 的高度偏移量 (避免標題被 Header 擋住)
-        var headerOffset = 110; 
-
-        // 3. 計算該區塊距離頁面頂端的絕對位置
-        var elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
-        var offsetPosition = elementPosition;
-
-        // 4. 平滑滾動過去
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    }
+    // 滾動到 .skin-type-section
+    setTimeout(function() {
+        var section = document.querySelector('.skin-type-content[data-section="color-makeup"]');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 100);
 }
 
 // 頁面載入時檢查URL hash,自動顯示對應的妝容細節
@@ -150,19 +164,54 @@ function showSkinType(type) {
 
 // 下拉選單切換功能
 function toggleSection(value) {
-    var skinTypeSection = document.querySelector('.skin-type-section');
-    var skinTypeContent = document.querySelector('.skin-type-content');
-    var stepByStepSection = document.querySelector('.step-by-step-section');
+    var skinTypeButtons = document.querySelector('.skin-type-buttons');
+    var stepTypeButtons = document.querySelector('.step-type-buttons');
+    var allContents = document.querySelectorAll('.skin-type-content');
     
+    // 隱藏所有區塊和按鈕
+    if (skinTypeButtons) skinTypeButtons.style.display = 'none';
+    if (stepTypeButtons) stepTypeButtons.style.display = 'none';
+    for (var i = 0; i < allContents.length; i++) {
+        allContents[i].style.display = 'none';
+    }
+    
+    // 根據選擇顯示對應區塊
     if (value === 'skin-test') {
         // 顯示膚質測試
-        skinTypeSection.style.display = 'block';
-        skinTypeContent.style.display = 'block';
-        stepByStepSection.style.display = 'none';
-    } else if (value === 'makeup-steps') {
-        // 顯示化妝步驟
-        skinTypeSection.style.display = 'none';
-        skinTypeContent.style.display = 'none';
-        stepByStepSection.style.display = 'block';
+        if (skinTypeButtons) skinTypeButtons.style.display = 'flex';
+        var skinTestContent = document.querySelector('.skin-type-content:not([data-section])');
+        if (skinTestContent) skinTestContent.style.display = 'flex';
+        
+        // 滾動到 .skin-type-section
+        setTimeout(function() {
+            var section = document.querySelector('.skin-type-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    } else if (value === 'base-makeup') {
+        // 顯示底妝上妝
+        var baseMakeup = document.querySelector('[data-section="base-makeup"]');
+        if (baseMakeup) baseMakeup.style.display = 'flex';
+        
+        // 滾動到 content
+        setTimeout(function() {
+            if (baseMakeup) {
+                baseMakeup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    } else if (value === 'color-makeup') {
+        // 顯示彩妝上妝
+        if (stepTypeButtons) stepTypeButtons.style.display = 'flex';
+        var colorMakeup = document.querySelector('[data-section="color-makeup"]');
+        if (colorMakeup) colorMakeup.style.display = 'flex';
+        
+        // 滾動到 .skin-type-section
+        setTimeout(function() {
+            var section = document.querySelector('.skin-type-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
     }
 }

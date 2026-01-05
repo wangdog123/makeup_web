@@ -94,9 +94,9 @@
                 <!-- 留言列表 -->
                 <div class="forum-list" id="forumList">
                     <!-- 留言項目 - 可由資料庫動態生成 -->
-                    <div class="forum-item" data-id="1" id="comment-1">
+                    <!-- <div class="forum-item" data-id="1" id="comment-1">
                         <div class="forum-avatar">
-                            <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                            <img src="images/index/user.png" alt="使用者頭像" class="avatar-img">
                         </div>
                         <div class="forum-content">
                             <div class="forum-header">
@@ -125,7 +125,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 回覆列表 -->
                     <div class="forum-replies-list" data-parent="1" style="display: none;"></div>
                     
                     <div class="forum-item" data-id="2" id="comment-2">
@@ -159,7 +158,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 回覆列表 -->
                     <div class="forum-replies-list" data-parent="2" style="display: none;"></div>
 
                     <div class="forum-item" data-id="3" id="comment-3">
@@ -193,7 +191,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 回覆列表 -->
                     <div class="forum-replies-list" data-parent="3" style="display: none;"></div>
                     <div class="forum-item" data-id="4" id="comment-4">
                         <div class="forum-avatar">
@@ -226,14 +223,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 回覆列表 -->
                     <div class="forum-replies-list" data-parent="4" style="display: none;"></div>                    
                     <!-- 展開/收合按鈕 -->
                     <button class="forum-toggle-btn" id="forumToggleBtn">
                         <span class="toggle-text"></span>
                         <span class="toggle-icon">▼</span>
                     </button>
-                </div>
+                </div> -->
 
                 <!-- 留言輸入框 -->
                 <div class="forum-input-wrapper">
@@ -255,6 +251,13 @@
             <a href="#" class="footer-link"><img src="images/index/LINE.png" alt="LINE"></a>
         </div>
     </footer>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <!-- <script src="js/migrate-comments.js"></script> -->
+    <!-- Firebase 配置 -->
+    <script src="js/firebase-config.js"></script>
+    
     <!-- 自訂 JavaScript -->
     <script src="js/menu.js"></script>
     <script src="js/slider.js"></script>

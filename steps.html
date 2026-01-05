@@ -24,7 +24,7 @@
                 <li class="nav-item"><a href="index.html" class="nav-link">首頁</a></li>
                 <li class="nav-item"><a href="steps.html" class="nav-link active">化妝步驟</a></li>
                 <li class="nav-item"><a href="recommendations.html" class="nav-link">推薦妝容</a></li>
-                <li class="nav-item"><a href="#product-banner" class="nav-link">討論區</a></li>
+                <li class="nav-item"><a href="index.html#product-banner" class="nav-link">討論區</a></li>
             </ul>
         </nav>
     </header>
@@ -52,7 +52,8 @@
                 <div class="skin-type-header">
                     <select class="skin-type-select" onchange="toggleSection(this.value)">
                         <option value="skin-test">了解膚質</option>
-                        <option value="makeup-steps">化妝步驟</option>
+                        <option value="base-makeup">底妝上妝</option>
+                        <option value="color-makeup">彩妝上妝</option>
                     </select>
                 </div>
                 
@@ -67,6 +68,17 @@
                     <button class="skin-type-btn" onclick="showSkinType('dry')">乾性</button>
                     <span class="arrow">▶</span>
                     <button class="skin-type-btn" onclick="showSkinType('sensitive')">敏感</button>
+                </div>
+
+                <!-- 彩妝步驟按鈕 (預設隱藏) -->
+                <div class="step-type-buttons" style="display: none;">
+                    <button class="skin-type-btn active" onclick="showStep(2)">遮瑕定妝</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showStep(3)">眼妝</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showStep(4)">腮紅、修容</button>
+                    <span class="arrow">▶</span>
+                    <button class="skin-type-btn" onclick="showStep(5)">唇妝、完妝</button>
                 </div>
             </div>
 
@@ -86,92 +98,138 @@
                     <div class="skin-illustration">
                         <img src="images/step/neutral-skin.png" alt="中性膚質" onerror="this.style.display='none'">
                     </div>
-                        <div class="skin-details">
-                            <div class="skin-detail-item">
-                                <h3>混油</h3>
-                                <div class="detail-section">
-                                    <h4>特質</h4>
-                                    <p>★T區容易出油</p>
-                                    <p>★臉頰皮膚油水平衡</p>
-                                    <p>★夏季偏油，冬季偏乾</p>
-                                </div>
-                                <div class="detail-section">
-                                    <h4>護膚重點</h4>
-                                    <p>★分區護理、T區控油</p>
-                                    <p>★臉頰皮膚油水平衡</p>
-                                    <p>★夏季偏油，冬季偏乾</p>
-                                </div>
+                    <div class="skin-details">
+                        <div class="skin-detail-item">
+                            <h3>中性</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★</p>
+                                <p>★</p>
+                                <p>★</p>
                             </div>
-                            <div class="skin-detail-item">
-                                <h3>混乾</h3>
-                                <div class="detail-section">
-                                    <h4>特質</h4>
-                                    <p>★T區容易出油</p>
-                                    <p>★臉頰皮膚油水平衡</p>
-                                    <p>★夏季偏油，冬季偏乾</p>
-                                </div>
-                                <div class="detail-section">
-                                    <h4>護膚重點</h4>
-                                    <p>★分區護理、T區控油</p>
-                                    <p>★臉頰皮膚油水平衡</p>
-                                    <p>★夏季偏油，冬季偏乾</p>
-                                </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★</p>
+                                <p>★</p>
+                                <p>★</p>
                             </div>
                         </div>
+                    </div>
                 </div>
 
-                <!-- 其他膚質内容 -->
+                <!-- 油性膚質 -->
                 <div id="oily-content" class="skin-content" style="display:none;">
-                    <p>油性肌膚內容...</p>
+                    <div class="skin-illustration">
+                        <img src="images/step/oily-skin.png" alt="油性膚質" onerror="this.style.display='none'">
+                    </div>
+                    <div class="skin-details">
+                        <div class="skin-detail-item">
+                            <h3>油性</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★油光滿面</p>
+                                <p>★毛孔明顯</p>
+                                <p>★容易長黑頭</p>
+                                <p>★化妝後易浮粉出現脫妝</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★選擇溫和的清潔產品</p>
+                                <p>★不要選擇油性質地過於重的產品</p>
+                                <p>★以清潔控油為主、做好補水保濕和防曬</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- 混和膚質 -->
                 <div id="combination-content" class="skin-content" style="display:none;">
-                    <p>混和肌膚內容...</p>
+                    <div class="skin-illustration">
+                        <img src="images/step/combination-skin.png" alt="混和膚質" onerror="this.style.display='none'">
+                    </div>
+                    <div class="skin-details">
+                        <div class="skin-detail-item">
+                            <h3>混油</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★T區容易出油</p>
+                                <p>★臉頰皮膚油水平衡</p>
+                                <p>★整體夏季偏油、冬季偏乾</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★分區護理，T區控油、臉頰保濕</p>
+                                <p>★避免過度清潔，T去定期深度清潔</p>
+                                <p>★選擇質地輕盈的保濕護膚品</p>
+                            </div>
+                        </div>
+                        <div class="skin-detail-item">
+                            <h3>混乾</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★T區偏油</p>
+                                <p>★毛孔明顯</p>
+                                <p>★臉頰乾燥嚴重</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★分區護理，不可用過熱的水潔面</p>
+                                <p>★T區清爽控油、定期深度清潔</p>
+                                <p>★臉頰加強補水保濕、做好防曬</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- 乾性膚質 -->
                 <div id="dry-content" class="skin-content" style="display:none;">
-                    <p>乾性肌膚內容...</p>
+                    <div class="skin-illustration">
+                        <img src="images/step/dry-skin.png" alt="乾性膚質" onerror="this.style.display='none'">
+                    </div>
+                    <div class="skin-details">
+                        <div class="skin-detail-item">
+                            <h3>乾性</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★皮膚表面乾燥無光澤</p>
+                                <p>★毛孔細膩缺水缺油</p>
+                                <p>★容易衰老，但不容易長痘</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★選擇溫和的清潔產品，不可用熱水洗臉</p>
+                                <p>★減少潔面次數，早上清水、晚上用潔面產品</p>
+                                <p>★水油同補，選擇滋潤型護膚品、深度保濕、加強鎖水</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- 敏感膚質 -->
                 <div id="sensitive-content" class="skin-content" style="display:none;">
-                    <p>敏感肌膚內容...</p>
+                    <div class="skin-illustration">
+                        <img src="images/step/sensitive-skin.png" alt="敏感膚質" onerror="this.style.display='none'">
+                    </div>
+                    <div class="skin-details">
+                        <div class="skin-detail-item">
+                            <h3>敏感</h3>
+                            <div class="detail-section">
+                                <h4>特質</h4>
+                                <p>★角質層薄</p>
+                                <p>★皮膚乾燥緊繃</p>
+                                <p>★容易泛紅、搔癢、刺痛</p>
+                            </div>
+                            <div class="detail-section">
+                                <h4>護膚重點</h4>
+                                <p>★精簡護膚，減少化妝對皮膚的刺激</p>
+                                <p>★用清水潔面，不可用熱水洗臉</p>
+                                <p>★選擇修復型高保濕的產品，做好防曬</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- 桃紅色分隔線 -->
-            <!-- <div class="step-divider"></div> -->
-
-            <!-- 影片教學區域 - 固定顯示 -->
-            <div class="step-video-section">
-                <div class="video-topic">一起跟著影片練習吧！</div>
-                <div class="step-video-container">
-                    <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
-                    <div class="step-video-text">
-                        <p>看影片學習上妝技巧，<br>動作更直觀！</p>
-                    <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
-                    </div>
-                </div>
-                <div class="extra-link">
-                    <p>相關連結</p>
-                    <a href="https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8" class="extra-link-item">https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8</a>
-                </div>
-            </div>
-
-            <!-- STEP BY STEP 教學區塊 (保留原有功能) -->
-            <div class="step-by-step-section" style="display:none;">
-                <div class="step-title-and-button">
-                    <h2 class="section-title">STEP BY STEP</h2>
-                    <!-- 步驟按鈕組 -->
-                    <div class="step-buttons">
-                        <button class="step-btn active" onclick="showStep(1)">STEP 1</button>
-                        <button class="step-btn" onclick="showStep(2)">STEP 2</button>
-                        <button class="step-btn" onclick="showStep(3)">STEP 3</button>
-                        <button class="step-btn" onclick="showStep(4)">STEP 4</button>
-                        <button class="step-btn" onclick="showStep(5)">STEP 5</button>
-                    </div>
-                </div>
-
-
-
-                <!-- STEP 1 內容 - 預設顯示 -->
-                <div id="step-1" class="step-content active">
+            <!-- 底妝上妝區塊 -->
+            <div class="skin-type-content" data-section="base-makeup" style="display:none;">
+                <div class="skin-content active">
                     <div class="step-content-top">
                         <div class="step-image">
                             <img src="images/step/step1-1.jpg" alt="步驟1示意圖1" class="step-detail-image">
@@ -194,9 +252,20 @@
                     </div>
                     <p class="step-tip-bottom">小提示： 若想讓妝感更自然，可用濕粉撲輕拍收尾。</p>
                 </div>
+            </div>
 
-                <!-- STEP 2 內容 - 預設隱藏 -->
-                <div id="step-2" class="step-content" style="display:none;">
+            <!-- 彩妝上妝區塊 -->
+            <div class="skin-type-content" data-section="color-makeup" style="display:none;">
+                <!-- 側邊導航按鈕 -->
+                <div class="skin-type-nav">
+                    <button class="skin-type-btn active" onclick="showStep(2)">遮瑕定妝</button>
+                    <button class="skin-type-btn" onclick="showStep(3)">眼妝</button>
+                    <button class="skin-type-btn" onclick="showStep(4)">腮紅、修容</button>
+                    <button class="skin-type-btn" onclick="showStep(5)">唇妝、完妝</button>
+                </div>
+
+                <!-- STEP 2 內容 - 預設顯示 -->
+                <div id="step-2" class="skin-content active">
                     <div class="step-content-top">
                         <div class="step-image">
                             <img src="images/step/step2-1.jpg" alt="步驟2示意圖1" class="step-detail-image">
@@ -224,7 +293,7 @@
                 </div>
 
                 <!-- STEP 3 內容 - 預設隱藏 -->
-                <div id="step-3" class="step-content" style="display:none;">
+                <div id="step-3" class="skin-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
                             <img src="images/step/step3-1.jpg" alt="步驟3示意圖1" class="step-detail-image">
@@ -250,7 +319,7 @@
                 </div>
 
                 <!-- STEP 4 內容 - 預設隱藏 -->
-                <div id="step-4" class="step-content" style="display:none;">
+                <div id="step-4" class="skin-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
                             <img src="images/step/step4-1.jpg" alt="步驟4示意圖1" class="step-detail-image">
@@ -278,7 +347,7 @@
                 </div>
 
                 <!-- STEP 5 內容 - 預設隱藏 -->
-                <div id="step-5" class="step-content" style="display:none;">
+                <div id="step-5" class="skin-content" style="display:none;">
                     <div class="step-content-top">
                         <div class="step-image">
                             <img src="images/step/step5-1.jpg" alt="步驟5示意圖1" class="step-detail-image">
@@ -302,6 +371,25 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 桃紅色分隔線 -->
+            <!-- <div class="step-divider"></div> -->
+
+            <!-- 影片教學區域 - 固定顯示 -->
+            <div class="step-video-section">
+                <div class="video-topic">一起跟著影片練習吧！</div>
+                <div class="step-video-container">
+                    <iframe src="https://www.youtube.com/embed/qiWVuJf5XD4" frameborder="0" allowfullscreen class="step-video"></iframe>
+                    <div class="step-video-text">
+                        <p>看影片學習上妝技巧，<br>動作更直觀！</p>
+                    <!-- <a href="#" class="video-link">新手必學！手部畫線寫妝教學全步步驟詳細解說💖深受網店關注</a> -->
+                    </div>
+                </div>
+                <div class="extra-link">
+                    <p>相關連結</p>
+                    <a href="https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8" class="extra-link-item">https://www.rachelwine.com.tw/Article/Detail/88839?srsltid=AfmBOor7YOYOwiLJDxCbEdj8-pPjOTE_aRkt0rBENOyTVQkT5Fmxq6Z8</a>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -316,6 +404,7 @@
     </footer>
 
     <!-- 引入外部 JavaScript -->
+    <script src="js/menu.js"></script>
     <script src="js/button.js"></script>
 </body>
 </html>

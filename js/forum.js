@@ -44,6 +44,9 @@ class ForumManager {
         
         // 綁定導航錨點平滑滾動
         this.bindSmoothScroll();
+        
+        // 處理頁面載入時的hash滾動
+        this.handleInitialHash();
     }
 
     // 新增留言 (之後會連接到資料庫)
@@ -70,31 +73,34 @@ class ForumManager {
         }
         
         const commentData = {
-            id: Date.now(),
             username: 'chiwawa',
             message: actualMessage,
             parentFloor: parentFloor,
             replyToSubFloor: replyToSubFloor,
             timestamp: dateStr,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             likes: 0,
-            dislikes: 0
+            dislikes: 0,
+            likedBy: [],
+            dislikedBy: []
         };
 
-        // TODO: 將資料發送到後端API
-        // await fetch('/api/comments', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(commentData)
-        // });
+        try {
+            // 儲存到 Firestore
+            const docRef = await db.collection('comments').add(commentData);
+            commentData.id = docRef.id;
 
-        // 暫時直接在前端顯示
-        if (parentFloor) {
-            this.renderReply(commentData, parentFloor);
-        }
-        else {
-            this.commentCount++;
-            commentData.floor = this.commentCount;
-            this.renderComment(commentData);
+            // 在前端顯示
+            if (parentFloor) {
+                this.renderReply(commentData, parentFloor);
+            } else {
+                this.commentCount++;
+                commentData.floor = this.commentCount;
+                this.renderComment(commentData);
+            }
+        } catch (error) {
+            console.error('新增留言失敗:', error);
+            alert('留言發送失敗，請稍後再試');
         }
     }
 
@@ -103,7 +109,7 @@ class ForumManager {
         const commentHTML = `
             <div class="forum-item" data-id="${data.id}" id="comment-${data.floor}">
                 <div class="forum-avatar">
-                    <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                    <img src="images/index/user.png" alt="使用者頭像" class="avatar-img">
                 </div>
                 <div class="forum-content">
                     <div class="forum-header">
@@ -176,7 +182,7 @@ class ForumManager {
         const replyHTML = `
             <div class="forum-item forum-reply-item" data-id="${data.id}" id="${replyId}">
                 <div class="forum-avatar">
-                    <img src="images/index/avatar.png" alt="使用者頭像" class="avatar-img">
+                    <img src="images/index/user.png" alt="使用者頭像" class="avatar-img">
                 </div>
                 <div class="forum-content">
                     <div class="forum-header">
@@ -251,6 +257,17 @@ class ForumManager {
                 if (dislikeBtn && dislikeBtn.dataset.disliked === 'true') {
                     dislikeBtn.dataset.disliked = 'false';
                     dislikeBtn.querySelector('.dislike-icon').textContent = '🖓';
+                    
+                    // 同步更新 Firestore (僅對從資料庫載入的留言)
+                    if (commentId && commentId.length > 10) {
+                        try {
+                            await db.collection('comments').doc(commentId).update({
+                                dislikedBy: firebase.firestore.FieldValue.arrayRemove('anonymous')
+                            });
+                        } catch (error) {
+                            console.error('取消倒讚失敗:', error);
+                        }
+                    }
                 }
                 
                 let count = parseInt(countSpan.textContent);
@@ -267,12 +284,19 @@ class ForumManager {
                 
                 countSpan.textContent = count;
 
-                // TODO: 更新資料庫
-                // await fetch(`/api/comments/${commentId}/like`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ liked: !liked })
-                // });
+                // 更新 Firestore (僅對從資料庫載入的留言)
+                if (commentId && commentId.length > 10) {
+                    try {
+                        await db.collection('comments').doc(commentId).update({
+                            likes: count,
+                            likedBy: liked 
+                                ? firebase.firestore.FieldValue.arrayRemove('anonymous') 
+                                : firebase.firestore.FieldValue.arrayUnion('anonymous')
+                        });
+                    } catch (error) {
+                        console.error('更新按讚失敗:', error);
+                    }
+                }
             });
         });
     }
@@ -300,6 +324,18 @@ class ForumManager {
                     countSpan.textContent = count;
                     likeBtn.dataset.liked = 'false';
                     likeBtn.querySelector('.like-icon').textContent = '♡';
+                    
+                    // 同步更新 Firestore (僅對從資料庫載入的留言)
+                    if (commentId && commentId.length > 10) {
+                        try {
+                            await db.collection('comments').doc(commentId).update({
+                                likes: count,
+                                likedBy: firebase.firestore.FieldValue.arrayRemove('anonymous')
+                            });
+                        } catch (error) {
+                            console.error('取消按讚失敗:', error);
+                        }
+                    }
                 }
                 
                 if (disliked) {
@@ -310,12 +346,16 @@ class ForumManager {
                     iconSpan.textContent = '👎︎';
                 }
 
-                // TODO: 更新資料庫
-                // await fetch(`/api/comments/${commentId}/dislike`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ disliked: !disliked })
-                // });
+                // 更新 Firestore (僅對從資料庫載入的留言)
+                if (commentId && commentId.length > 10) {
+                    try {
+                        await db.collection('comments').doc(commentId).update({
+                            dislikedBy: disliked ? firebase.firestore.FieldValue.arrayRemove('anonymous') : firebase.firestore.FieldValue.arrayUnion('anonymous')
+                        });
+                    } catch (error) {
+                        console.error('更新倒讚失敗:', error);
+                    }
+                }
             });
         });
     }
@@ -450,16 +490,83 @@ class ForumManager {
             });
         });
     }
+    
+    // 處理頁面載入時的hash滾動
+    handleInitialHash() {
+        const hash = window.location.hash;
+        
+        // 如果URL中有hash，先移除它並滾動到頂部
+        if (hash && hash !== '#') {
+            // 暫時移除hash以防止瀏覽器自動跳轉
+            history.replaceState(null, null, ' ');
+            
+            // 確保頁面從頂部開始
+            window.scrollTo(0, 0);
+            
+            // 等待頁面完全載入後再執行滾動
+            window.addEventListener('load', () => {
+                const targetElement = document.querySelector(hash);
+                
+                if (targetElement) {
+                    // 延遲執行以確保頁面完全渲染並從頂部開始滾動
+                    setTimeout(() => {
+                        const scrollOptions = {
+                            behavior: 'smooth',
+                            block: targetElement.classList.contains('forum-section') || 
+                                   targetElement.classList.contains('product-banner') 
+                                   ? 'start'
+                                   : 'center'
+                        };
+                        
+                        targetElement.scrollIntoView(scrollOptions);
+                        
+                        // 恢復URL中的hash
+                        history.replaceState(null, null, hash);
+                        
+                        // 如果是留言項目，添加高亮效果
+                        if (targetElement.classList.contains('forum-item')) {
+                            targetElement.style.backgroundColor = '#FFE4E9';
+                            setTimeout(() => {
+                                targetElement.style.backgroundColor = '';
+                            }, 1000);
+                        }
+                    }, 100);
+                }
+            });
+        }
+    }
 
-    // 從資料庫載入留言 (之後實作)
+    // 從資料庫載入留言
     async loadComments() {
         try {
-            // TODO: 從後端API獲取留言資料
-            // const response = await fetch('/api/comments');
-            // const comments = await response.json();
-            // comments.forEach(comment => this.renderComment(comment));
+            const snapshot = await db.collection('comments')
+                .orderBy('createdAt', 'asc')
+                .get();
             
-            console.log('資料庫連接功能待實作');
+            let mainFloorCount = 0;
+            const replies = [];
+            
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                data.id = doc.id;
+                
+                if (!data.parentFloor) {
+                    // 主樓層留言
+                    mainFloorCount++;
+                    data.floor = mainFloorCount;
+                    this.commentCount = mainFloorCount;
+                    this.renderComment(data);
+                } else {
+                    // 回覆留言，先暫存
+                    replies.push(data);
+                }
+            });
+            
+            // 渲染所有回覆
+            replies.forEach(reply => {
+                this.renderReply(reply, reply.parentFloor);
+            });
+            
         } catch (error) {
             console.error('載入留言失敗:', error);
         }
@@ -469,5 +576,11 @@ class ForumManager {
 // 當DOM載入完成後初始化留言板
 document.addEventListener('DOMContentLoaded', () => {
     const forumManager = new ForumManager();
-    // forumManager.loadComments(); // 之後啟用資料庫載入
+    
+    // 等待 Firebase 初始化後載入留言
+    if (typeof db !== 'undefined') {
+        forumManager.loadComments();
+    } else {
+        console.warn('Firebase 未初始化，請檢查 firebase-config.js');
+    }
 });
