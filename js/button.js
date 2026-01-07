@@ -95,25 +95,16 @@ window.addEventListener('DOMContentLoaded', function() {
     // 取得URL中的hash值 (例如: #sweet, #bitter, #spicy, #salt)
     var hash = window.location.hash.substring(1); // 移除#符號
     
-    // 如果有hash值且對應的細節區塊存在,就顯示該區塊
+    // 如果在 index.html 且有 style hash，直接跳轉到 recommendations.html
+    var styleHashes = ['sweet', 'bitter', 'spicy', 'salt'];
+    if (hash && styleHashes.indexOf(hash) !== -1 && !window.location.pathname.includes('recommendations.html')) {
+        window.location.href = 'recommendations.html';
+        return;
+    }
+    
+    // 如果在 recommendations.html 且有hash值且對應的細節區塊存在,就顯示該區塊
     if (hash && document.getElementById(hash + '-detail')) {
         showStyleDetail(hash);
-        
-        // 延遲滾動,確保內容已完全顯示
-        setTimeout(function() {
-            var detailElement = document.getElementById(hash + '-detail');
-            if (detailElement) {
-                // 取得元素距離頂部的位置,加上偏移量讓它顯示在更下面
-                var elementPosition = detailElement.getBoundingClientRect().top + window.pageYOffset;
-                var offsetPosition = elementPosition + 65; // 加上200px,讓它往下滾動更多
-                
-                // 平滑滾動到目標位置
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }, 100);
     }
 });
 

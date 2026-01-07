@@ -226,9 +226,9 @@ class ForumManager {
             toggleBtn.querySelector('.reply-count-text').textContent = `查看其他 ${newCount} 則留言`;
             toggleBtn.style.display = 'inline-block';
             
-            // 自動展開回覆列表
-            repliesList.style.display = 'block';
-            toggleBtn.classList.add('expanded');
+            // 預設不展開回覆列表（保持收合狀態）
+            // repliesList.style.display = 'block';
+            // toggleBtn.classList.add('expanded');
             
             this.bindLikeButtons();
             this.bindDislikeButtons();
