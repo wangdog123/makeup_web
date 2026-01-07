@@ -1,2 +1,2 @@
-化妝教學網站(目前內容皆待定)<br>
-https://wangdog123.github.io/web_mid/index.html
+化妝教學網站<br>
+https://webfinal-6ea63.web.app/
