@@ -183,7 +183,15 @@ function toggleSection(value) {
     } else if (value === 'base-makeup') {
         // 顯示底妝上妝
         var baseMakeup = document.querySelector('[data-section="base-makeup"]');
-        if (baseMakeup) baseMakeup.style.display = 'flex';
+        if (baseMakeup) {
+            baseMakeup.style.display = 'flex';
+            // 確保內容顯示（因为可能被 showSkinType 隱藏）
+            var innerContent = baseMakeup.querySelector('.skin-content');
+            if (innerContent) {
+                innerContent.style.display = 'block';
+                innerContent.classList.add('active');
+            }
+        }
         
         // 滾動到 content
         setTimeout(function() {
@@ -195,7 +203,11 @@ function toggleSection(value) {
         // 顯示彩妝上妝
         if (stepTypeButtons) stepTypeButtons.style.display = 'flex';
         var colorMakeup = document.querySelector('[data-section="color-makeup"]');
-        if (colorMakeup) colorMakeup.style.display = 'flex';
+        if (colorMakeup) {
+            colorMakeup.style.display = 'flex';
+            // 預設選取第一個步驟
+            showStep(2);
+        }
         
         // 滾動到 .skin-type-section
         setTimeout(function() {
