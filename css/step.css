@@ -852,8 +852,8 @@ Step by Step Section
     }
 
     .skin-type-btn {
-        width: 60px;
-        height: 60px;
+        width: clamp(45px, 7vw, 80px);
+        height: clamp(45px, 7vw, 80px);
         font-size: 16px;
     }
 
